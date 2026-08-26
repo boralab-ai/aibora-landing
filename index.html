@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이보라 | 중장년 AI 리터러시 강사 · 출강 문의</title>
+<meta name="description" content="복지관·평생학습관·기관의 50·60대 시민을 위한 AI 강의. ChatGPT 기초부터 스마트폰 AI 활용까지, 2시간 특강·4회 정규과정으로 진행합니다. 출강 문의 환영.">
+<link rel="canonical" href="./index.html">
+<!-- 카카오톡·문자로 링크를 보낼 때 뜨는 미리보기입니다.
+     배포 후 아래 4곳의 https://예시주소 를 실제 주소로 바꿔주세요. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="이보라 — AI 리터러시 강사">
+<meta property="og:title" content="이보라 | 중장년 AI 리터러시 강사">
+<meta property="og:description" content="복지관·평생학습관 50·60대 시민 대상 AI 강의. 2시간 특강부터 4회 정규과정까지 기관 상황에 맞춰 구성합니다.">
+<meta property="og:image" content="https://예시주소/images/profile.jpg">
+<meta property="og:url" content="https://예시주소/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  header.hero {
+    padding: clamp(3.5rem, 10vw, 6rem) 1.75rem clamp(3rem, 8vw, 4.5rem);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .avatar {
+    position: relative;
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .avatar-fallback {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+
+  .about p {
+    max-width: 58ch;
+    color: var(--ink);
+    margin: 0 0 1.05rem;
+    font-size: 1.03rem;
+  }
+  .about p:last-child { margin-bottom: 0; }
+
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .topics-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .topics-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 13rem) 1fr;
+    gap: 0.5rem 1.75rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .topics-list li:first-child { border-top: none; padding-top: 0; }
+  .topics-list li:last-child { padding-bottom: 0; }
+
+  .topic-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.12rem;
+    color: var(--ink);
+  }
+
+  .topic-desc {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 560px) {
+    .topics-list li {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-line {
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0;
+  }
+
+  /* --- consult section --- */
+
+  .consult-desc {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 52ch;
+    margin: 0 0 2.5rem;
+  }
+
+  .consult-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .c-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .c-field legend {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .c-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.08rem;
+    color: var(--ink);
+  }
+
+  .c-label .req {
+    color: var(--danger);
+    font-size: 0.95rem;
+  }
+
+  .c-label .c-hint {
+    font-weight: 400;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .c-input {
+    display: block;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+  }
+
+  .c-input:disabled {
+    opacity: 0.5;
+    background: var(--surface-2);
+  }
+
+  .c-textarea {
+    min-height: 9.5rem;
+    line-height: 1.7;
+    resize: vertical;
+  }
+
+  .choice-grid {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .choice-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .choice-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  @media (max-width: 640px) {
+    .choice-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .choice-grid-2 { grid-template-columns: 1fr; }
+  }
+
+  .choice-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 3.5rem;
+    padding: 0.9rem 1rem;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+
+  .choice-card input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .choice-card:hover { border-color: var(--ink-soft); }
+  .choice-card:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .choice-card:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 600;
+  }
+
+  .choice-card-inline {
+    min-height: auto;
+    flex: 0 0 auto;
+    padding: 0.9rem 1.35rem;
+  }
+
+  .date-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    align-items: stretch;
+  }
+
+  .date-row .c-input { flex: 1 1 220px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .choice-card { transition: none; }
+  }
+
+  .btn-consult-submit {
+    align-self: flex-start;
+    font-size: 1.08rem;
+    padding: 1.1rem 2.4rem;
+  }
+
+  @media (max-width: 560px) {
+    .btn-consult-submit {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .consult-success {
+    padding: 2.5rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .consult-success-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  .consult-success p {
+    color: var(--ink-soft);
+    margin: 0 0 0.5rem;
+    max-width: 40ch;
+  }
+
+  .consult-manual {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin: 0.5rem 0 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .consult-manual-help {
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .consult-manual .c-textarea {
+    min-height: 12rem;
+    font-size: 0.95rem;
+  }
+
+  .topics-note {
+    margin: 1.75rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .video-empty {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  /* --- materials section --- */
+
+  .materials-desc {
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin: 0 0 2rem;
+  }
+
+  .material-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.75rem;
+    background: var(--surface);
+  }
+
+  .material-card-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+  }
+
+  .material-card-desc {
+    color: var(--ink-soft);
+    margin: 0 0 1.5rem;
+  }
+
+  @media (max-width: 560px) {
+    .material-card .cta-row {
+      flex-direction: column;
+    }
+    .material-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">이보라</a>
+    <div class="links">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#topics">강의 주제</a>
+      <a href="index.html#materials">강의자료 · 실습</a>
+      <a href="board.html">게시판</a>
+      <a href="index.html#consult">출강 문의</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="avatar">
+    <img src="images/profile.jpg" alt="이보라 프로필 사진" width="108" height="108" decoding="async"
+      onerror="if (!this.dataset.fallback) { this.dataset.fallback='1'; this.src='images/profile.png'; } else { this.remove(); }">
+    <span class="avatar-fallback">이보</span>
+  </div>
+  <p class="eyebrow">AI 리터러시 강사</p>
+  <h1 class="name">이보라</h1>
+  <p class="tagline">AI를 <em class="mark">아는 사람</em>과 <em class="mark">모르는 사람</em> 사이의 거리를 좁힙니다.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#consult">출강 문의하기</a>
+    <a class="btn btn-ghost" href="#topics">강의 주제 보기</a>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <p class="section-label">About</p>
+  <h2>어려운 AI를, 알아들을 수 있는 말로</h2>
+  <p>50·60대 수강생의 눈높이에서 시작합니다. 용어를 외우는 수업이 아니라, 강의가 끝난 그날 스마트폰으로 직접 해보게 만드는 것이 목표입니다. 손동작 하나까지 따라 할 수 있게 설계된 실습 중심 강의입니다.</p>
+  <p>복지관·평생학습관·주민센터 등 기관 시민교육을 중심으로, 2시간 단회 특강부터 4회 8시간 정규과정까지 대상과 목적에 맞춰 구성해 진행합니다.</p>
+</section>
+
+<section id="video">
+  <p class="section-label">Video</p>
+  <h2>영상으로 만나보기</h2>
+  <div class="video-embed" id="video-embed">
+    <p class="video-empty" id="video-empty">소개 영상을 준비하고 있습니다.</p>
+  </div>
+</section>
+
+<script>
+// 유튜브 영상 주소가 https://www.youtube.com/watch?v=AbCdEfGhIjK 라면
+// 아래 따옴표 안에 AbCdEfGhIjK 부분만 붙여넣으세요. 비워두면 "준비 중"으로 표시됩니다.
+(function () {
+  var YOUTUBE_ID = '';
+  if (!/^[A-Za-z0-9_-]{11}$/.test(YOUTUBE_ID)) return;
+  var box = document.getElementById('video-embed');
+  var f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + YOUTUBE_ID;
+  f.title = '이보라 소개 영상';
+  f.loading = 'lazy';
+  f.allowFullscreen = true;
+  f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+  f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+  box.innerHTML = '';
+  box.appendChild(f);
+})();
+</script>
+
+<section id="topics">
+  <p class="section-label">Topics</p>
+  <h2>다루는 주제</h2>
+  <ul class="topics-list">
+    <li>
+      <span class="topic-name">ChatGPT 기초</span>
+      <span class="topic-desc">가입부터 첫 질문까지. 화면을 함께 보며 한 단계씩 따라 하는 입문 과정</span>
+    </li>
+    <li>
+      <span class="topic-name">생활 속 AI 활용</span>
+      <span class="topic-desc">병원 진료 준비, 편지·문자 쓰기, 여행 계획 — 일상에서 바로 쓰는 법</span>
+    </li>
+    <li>
+      <span class="topic-name">스마트폰 AI 활용</span>
+      <span class="topic-desc">음성으로 묻기, 사진 정리, 번역·요약까지 손에 든 폰으로 실습</span>
+    </li>
+    <li>
+      <span class="topic-name">업무·자영업 AI 활용</span>
+      <span class="topic-desc">가게 홍보 문구, 안내문, 견적·메일 작성 등 일에 바로 붙이는 활용</span>
+    </li>
+    <li>
+      <span class="topic-name">바이브코딩 체험</span>
+      <span class="topic-desc">코딩을 몰라도 말로 지시해 나만의 작은 웹앱을 만들어 보는 체험형 수업</span>
+    </li>
+    <li>
+      <span class="topic-name">기관 맞춤 강의</span>
+      <span class="topic-desc">수강생 연령·인원·목적에 맞춰 커리큘럼을 새로 구성해 드립니다</span>
+    </li>
+  </ul>
+  <p class="topics-note">진행 형태 · 2시간 단회 특강 / 4시간 실습 / 4회 8시간 정규과정 — 기관 일정에 맞춰 조정 가능합니다.</p>
+</section>
+
+<section id="materials">
+  <p class="section-label">Materials</p>
+  <h2>강의자료 · 실습</h2>
+  <p class="materials-desc">시연용 강의 자료와 실습 페이지입니다. 순차적으로 공개될 예정입니다.</p>
+
+  <div class="material-card">
+    <h3 class="material-card-title">이 연락 믿어도 될까요?</h3>
+    <p class="material-card-desc">문자·전화로 온 연락이 사기인지 AI와 함께 확인해보는 실습형 강의입니다.</p>
+    <div class="cta-row">
+      <button type="button" class="btn btn-ghost" disabled aria-disabled="true">교안 보기 (준비 중)</button>
+      <button type="button" class="btn btn-ghost" disabled aria-disabled="true">실습 시작하기 (준비 중)</button>
+    </div>
+  </div>
+</section>
+
+<section id="consult">
+  <p class="section-label">Consult</p>
+  <h2>AI 강의 상담 · 출강 문의</h2>
+  <p class="consult-desc">교육 대상과 희망 내용을 간단히 알려주시면 기관 상황에 맞는 강의를 함께 구성해드립니다.</p>
+
+  <form class="consult-form" id="consult-form">
+    <div class="c-field">
+      <label for="c-org" class="c-label">기관명 <span class="req">*</span></label>
+      <input type="text" id="c-org" name="org" class="c-input" placeholder="예: OO평생학습관" required>
+    </div>
+
+    <fieldset class="c-field">
+      <legend class="c-label">교육 대상 <span class="req">*</span></legend>
+      <div class="choice-grid choice-grid-4">
+        <label class="choice-card"><input type="radio" name="audience" value="50대" required><span>50대</span></label>
+        <label class="choice-card"><input type="radio" name="audience" value="60대"><span>60대</span></label>
+        <label class="choice-card"><input type="radio" name="audience" value="5060 혼합"><span>50·60대 혼합</span></label>
+        <label class="choice-card"><input type="radio" name="audience" value="기타"><span>기타</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="c-field">
+      <legend class="c-label">예상 참여 인원 <span class="req">*</span></legend>
+      <div class="choice-grid choice-grid-4">
+        <label class="choice-card"><input type="radio" name="size" value="10명 이하" required><span>10명 이하</span></label>
+        <label class="choice-card"><input type="radio" name="size" value="10~20명"><span>10~20명</span></label>
+        <label class="choice-card"><input type="radio" name="size" value="20~30명"><span>20~30명</span></label>
+        <label class="choice-card"><input type="radio" name="size" value="30명 이상"><span>30명 이상</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="c-field">
+      <legend class="c-label">관심 있는 AI 강의 <span class="c-hint">(복수 선택 가능)</span></legend>
+      <div class="choice-grid choice-grid-2">
+        <label class="choice-card"><input type="checkbox" name="courses" value="ChatGPT 기초"><span>ChatGPT 기초</span></label>
+        <label class="choice-card"><input type="checkbox" name="courses" value="생활 속 AI 활용"><span>생활 속 AI 활용</span></label>
+        <label class="choice-card"><input type="checkbox" name="courses" value="스마트폰 AI 활용"><span>스마트폰 AI 활용</span></label>
+        <label class="choice-card"><input type="checkbox" name="courses" value="업무·자영업 AI 활용"><span>업무·자영업 AI 활용</span></label>
+        <label class="choice-card"><input type="checkbox" name="courses" value="바이브코딩 체험"><span>바이브코딩 체험</span></label>
+        <label class="choice-card"><input type="checkbox" name="courses" value="기관 맞춤 강의"><span>기관 맞춤 강의</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="c-field">
+      <legend class="c-label">희망 강의 형태 <span class="req">*</span></legend>
+      <div class="choice-grid choice-grid-2">
+        <label class="choice-card"><input type="radio" name="format" value="2시간 특강" required><span>2시간 특강</span></label>
+        <label class="choice-card"><input type="radio" name="format" value="4시간 실습"><span>4시간 실습</span></label>
+        <label class="choice-card"><input type="radio" name="format" value="여러 회차 과정"><span>여러 회차 과정</span></label>
+        <label class="choice-card"><input type="radio" name="format" value="아직 미정"><span>아직 미정</span></label>
+      </div>
+    </fieldset>
+
+    <div class="c-field">
+      <label for="c-date" class="c-label">희망 일정</label>
+      <div class="date-row">
+        <input type="date" id="c-date" name="date" class="c-input">
+        <label class="choice-card choice-card-inline">
+          <input type="checkbox" id="c-date-flex" name="dateFlexible">
+          <span>협의 가능</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="c-field">
+      <label for="c-note" class="c-label">추가 문의</label>
+      <textarea id="c-note" name="note" class="c-input c-textarea" placeholder="궁금한 점이나 요청 사항을 자유롭게 남겨주세요."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-consult-submit">출강 상담 신청하기</button>
+  </form>
+
+  <div class="consult-success" id="consult-success" hidden tabindex="-1" aria-live="polite">
+    <p class="consult-success-title" id="consult-success-title">문의해 주셔서 감사합니다.</p>
+    <p id="consult-success-desc">남겨주신 내용을 확인한 뒤 빠른 시일 내에 연락드리겠습니다.</p>
+
+    <div class="consult-manual" id="consult-manual" hidden>
+      <p class="consult-manual-help">메일 앱이 열리지 않았다면, 아래 내용을 복사해 <strong id="consult-email"></strong> 으로 보내주세요.</p>
+      <textarea class="c-input c-textarea" id="consult-summary" readonly></textarea>
+      <div class="cta-row">
+        <button type="button" class="btn btn-primary" id="consult-copy">내용 복사하기</button>
+        <a class="btn btn-ghost" id="consult-mail-again" href="#">메일 앱 다시 열기</a>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-ghost" id="consult-reset">다시 작성하기</button>
+  </div>
+</section>
+
+<script>
+(function () {
+  /* ─────────────────────────────────────────────────────────────
+     설정 2줄
+     CONTACT_EMAIL  : 상담 신청 내용을 받을 메일 주소
+     FORM_ENDPOINT  : 비워두면 방문자의 메일 앱이 열립니다.
+                      Formspree 같은 무료 폼 서비스에 가입해 주소를 받으면
+                      (예: 'https://formspree.io/f/abcdwxyz') 아래에 붙여넣으세요.
+                      그 순간부터 메일 앱 없이 곧바로 접수됩니다.
+     ───────────────────────────────────────────────────────────── */
+  var CONTACT_EMAIL = 'ggamimon1004@gmail.com';
+  var FORM_ENDPOINT = '';
+
+  var form = document.getElementById('consult-form');
+  var success = document.getElementById('consult-success');
+  var successTitle = document.getElementById('consult-success-title');
+  var successDesc = document.getElementById('consult-success-desc');
+  var manual = document.getElementById('consult-manual');
+  var summaryBox = document.getElementById('consult-summary');
+  var mailAgain = document.getElementById('consult-mail-again');
+  var copyBtn = document.getElementById('consult-copy');
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var dateInput = document.getElementById('c-date');
+  var dateFlex = document.getElementById('c-date-flex');
+
+  document.getElementById('consult-email').textContent = CONTACT_EMAIL;
+
+  dateFlex.addEventListener('change', function () {
+    dateInput.disabled = dateFlex.checked;
+    if (dateFlex.checked) dateInput.value = '';
+  });
+
+  function collect() {
+    var fd = new FormData(form);
+    var courses = fd.getAll('courses');
+    return {
+      '기관명': (fd.get('org') || '').trim(),
+      '교육 대상': fd.get('audience') || '',
+      '예상 인원': fd.get('size') || '',
+      '관심 강의': courses.length ? courses.join(', ') : '선택 없음',
+      '희망 형태': fd.get('format') || '',
+      '희망 일정': fd.get('dateFlexible') ? '협의 가능' : (fd.get('date') || '미기재'),
+      '추가 문의': (fd.get('note') || '').trim() || '없음'
+    };
+  }
+
+  function toText(data) {
+    var lines = ['[출강 상담 신청]', ''];
+    for (var k in data) { if (data.hasOwnProperty(k)) lines.push(k + ': ' + data[k]); }
+    lines.push('', '보낸 시각: ' + new Date().toLocaleString('ko-KR'));
+    return lines.join('\n');
+  }
+
+  function mailtoUrl(data) {
+    var subject = '[출강 상담] ' + (data['기관명'] || '기관명 미기재');
+    return 'mailto:' + CONTACT_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(toText(data));
+  }
+
+  function showSuccess(sent, data) {
+    form.hidden = true;
+    success.hidden = false;
+    if (sent) {
+      successTitle.textContent = '문의해 주셔서 감사합니다.';
+      successDesc.textContent = '남겨주신 내용을 확인한 뒤 빠른 시일 내에 연락드리겠습니다.';
+      manual.hidden = true;
+    } else {
+      successTitle.textContent = '메일 앱에서 전송 버튼을 눌러주세요.';
+      successDesc.textContent = '작성하신 내용이 담긴 메일이 열립니다. 보내기를 눌러야 접수됩니다.';
+      summaryBox.value = toText(data);
+      mailAgain.href = mailtoUrl(data);
+      manual.hidden = false;
+    }
+    success.focus();
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var data = collect();
+
+    if (FORM_ENDPOINT) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '보내는 중…';
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (res) {
+        showSuccess(res.ok, data);
+      }).catch(function () {
+        showSuccess(false, data);
+      }).then(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '출강 상담 신청하기';
+      });
+      return;
+    }
+
+    window.location.href = mailtoUrl(data);
+    showSuccess(false, data);
+  });
+
+  copyBtn.addEventListener('click', function () {
+    summaryBox.select();
+    var done = function () {
+      copyBtn.textContent = '복사했습니다';
+      setTimeout(function () { copyBtn.textContent = '내용 복사하기'; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(summaryBox.value).then(done, function () {
+        try { document.execCommand('copy'); done(); } catch (err) {}
+      });
+    } else {
+      try { document.execCommand('copy'); done(); } catch (err) {}
+    }
+  });
+
+  document.getElementById('consult-reset').addEventListener('click', function () {
+    form.reset();
+    dateInput.disabled = false;
+    form.hidden = false;
+    success.hidden = true;
+    manual.hidden = true;
+  });
+})();
+</script>
+
+<section id="contact" class="contact">
+  <p class="section-label">Contact</p>
+  <h2>강연, 워크숍 문의</h2>
+  <p class="contact-line">위 상담 신청서 대신 메일로 바로 연락하셔도 됩니다. 기관 특강·정규과정 문의 모두 환영합니다.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="mailto:ggamimon1004@gmail.com">ggamimon1004@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">이보라</span>
+  <span>© 2026 이보라. AI 리터러시 강사</span>
+</footer>
+
+</body>
+</html>
