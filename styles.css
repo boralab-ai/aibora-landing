@@ -53,6 +53,9 @@ body {
   font-size: 17px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  /* 한국어 단어(어절) 중간에서 줄바꿈되지 않도록 처리 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a { color: inherit; }
