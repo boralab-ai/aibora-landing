@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강의 프로그램 | 이보라 — AI 리터러시 강사</title>
+<meta name="description" content="이보라 강사가 운영하는 AI 리터러시 강의 프로그램 목록입니다. 정규과정, 특강, 실습형 교육을 확인하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-header {
+    padding: clamp(2.75rem, 7vw, 4rem) 1.75rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+    text-wrap: balance;
+  }
+
+  .page-desc {
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0;
+  }
+
+  /* --- 프로그램 카드 (index.html material-card / syllabus.html session-card와 같은 시각 언어) --- */
+
+  .program-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .program-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.75rem;
+    background: var(--surface);
+  }
+
+  .program-card-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  /* 대표 이미지 자리. 준비되면 이 영역에 <img>를 넣어 교체합니다. */
+  .program-icon {
+    flex: none;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+  }
+
+  .program-type {
+    display: inline-flex;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .program-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .program-desc {
+    color: var(--ink-soft);
+    margin: 0 0 1.25rem;
+    line-height: 1.6;
+  }
+
+  .program-meta {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+  }
+
+  .program-meta li {
+    display: grid;
+    grid-template-columns: minmax(0, 4.5rem) 1fr;
+    gap: 0.4rem 1rem;
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.92rem;
+  }
+  .program-meta li:first-child { border-top: none; padding-top: 0; }
+  .program-meta li:last-child { padding-bottom: 0; }
+
+  .meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  .meta-value {
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .program-status {
+    margin: 0.9rem 0 0;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 560px) {
+    .program-card .cta-row {
+      flex-direction: column;
+    }
+    .program-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">이보라</a>
+    <div class="links">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#topics">강의 주제</a>
+      <a href="index.html#materials">강의자료 · 실습</a>
+      <a href="board.html">게시판</a>
+      <a href="programs.html" aria-current="page">강의 프로그램</a>
+      <a href="index.html#consult">출강 문의</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Programs</p>
+  <h1 class="page-title">강의 프로그램</h1>
+  <p class="page-desc">중장년의 일상과 실제 생활에서 바로 활용할 수 있는 AI 교육 프로그램입니다. 정규과정, 특강, 실습형 교육으로 운영합니다.</p>
+</header>
+
+<section id="program-list">
+  <!--
+    새 프로그램 추가 방법
+    1) 아래 .program-card 블록 하나를 통째로 복사해 이 목록 안에 붙여넣습니다.
+    2) 프로그램명 · 한 줄 설명 · 대상 · 시간 · 유형만 채웁니다.
+    3) 상세 페이지가 준비되면 cta-row의 버튼을 새 상세 HTML 페이지로 연결합니다.
+    4) 상세 페이지가 아직 없다면 disabled 버튼을 그대로 두고 program-status에 안내 문구를 남깁니다.
+  -->
+  <div class="program-grid">
+
+    <article class="program-card">
+      <div class="program-card-head">
+        <div class="program-icon" aria-hidden="true">01</div>
+        <div>
+          <p class="program-type">정규과정</p>
+          <h2 class="program-title">스마트폰으로 배우는 생활 AI</h2>
+        </div>
+      </div>
+      <p class="program-desc">ChatGPT 기초와 활용 — 중장년 시민을 위한 4회 스마트폰 실습 중심 정규 과정입니다.</p>
+      <ul class="program-meta">
+        <li><span class="meta-label">대상</span><span class="meta-value">중장년 시민</span></li>
+        <li><span class="meta-label">교육 시간</span><span class="meta-value">4회 · 회당 2시간 · 총 8시간</span></li>
+        <li><span class="meta-label">형태</span><span class="meta-value">스마트폰 실습 중심</span></li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="syllabus.html">프로그램 자세히 보기</a>
+      </div>
+    </article>
+
+    <article class="program-card">
+      <div class="program-card-head">
+        <div class="program-icon" aria-hidden="true">02</div>
+        <div>
+          <p class="program-type">축약 특강</p>
+          <h2 class="program-title">오늘 바로 쓰는 생활 AI 3가지</h2>
+        </div>
+      </div>
+      <p class="program-desc">의심스러운 연락 확인하기, ChatGPT와 첫 대화, 생활 글쓰기까지 한 번에 경험하는 2시간 특강입니다.</p>
+      <ul class="program-meta">
+        <li><span class="meta-label">대상</span><span class="meta-value">AI를 처음 접하는 중장년</span></li>
+        <li><span class="meta-label">교육 시간</span><span class="meta-value">1회 · 2시간</span></li>
+        <li><span class="meta-label">형태</span><span class="meta-value">특강</span></li>
+      </ul>
+      <div class="cta-row">
+        <button type="button" class="btn btn-ghost" disabled aria-disabled="true">프로그램 자세히 보기</button>
+      </div>
+      <p class="program-status">현재 운영 가능한 특강입니다. 상세 페이지는 준비 중입니다.</p>
+    </article>
+
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">이보라</span>
+  <span>© 2026 이보라. AI 리터러시 강사</span>
+</footer>
+
+</body>
+</html>

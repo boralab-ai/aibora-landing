@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강의계획서 | 이보라 — AI 리터러시 강사</title>
+<meta name="description" content="스마트폰으로 배우는 생활 AI 4회 과정의 강의계획서입니다. 대상, 학습 목표, 회차별 커리큘럼과 결과물을 확인하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-header {
+    padding: clamp(2.75rem, 7vw, 4rem) 1.75rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    line-height: 1.25;
+    margin: 0 0 0.9rem;
+    text-wrap: balance;
+  }
+
+  .page-desc {
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .course-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+  }
+
+  /* --- 대상 / 목표 목록 (index.html topics-list와 같은 시각 언어) --- */
+
+  .info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .info-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 8rem) 1fr;
+    gap: 0.5rem 1.75rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .info-list li:first-child { border-top: none; padding-top: 0; }
+  .info-list li:last-child { padding-bottom: 0; }
+
+  .info-term {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+
+  .info-desc {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 560px) {
+    .info-list li {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+
+  .goal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .goal-list li {
+    display: flex;
+    gap: 0.9rem;
+    align-items: baseline;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  .goal-num {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    padding-top: 0.15rem;
+  }
+
+  /* --- 회차 카드 (index.html material-card와 같은 시각 언어) --- */
+
+  .session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .session-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.75rem;
+    background: var(--surface);
+  }
+
+  .session-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+  }
+
+  .session-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+
+  .session-goal {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0 0 1.3rem;
+    line-height: 1.6;
+  }
+
+  .schedule {
+    list-style: none;
+    margin: 0 0 1.3rem;
+    padding: 0;
+  }
+
+  .schedule li {
+    display: grid;
+    grid-template-columns: minmax(0, 4rem) 1fr;
+    gap: 0.4rem 1rem;
+    padding: 0.65rem 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .schedule li:first-child { border-top: none; padding-top: 0; }
+  .schedule li:last-child { padding-bottom: 0; }
+
+  .schedule-time {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .schedule-content {
+    font-size: 0.96rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .schedule li.is-today {
+    background: linear-gradient(90deg, rgba(245, 185, 66, 0.14), transparent 92%);
+    margin: 0 -0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .badge-today {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .demo-callout {
+    margin: 0 0 1.3rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    background: var(--surface-2);
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .demo-callout strong {
+    color: var(--ink);
+  }
+
+  .session-notes {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .session-notes li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  @media (max-width: 480px) {
+    .schedule li {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+  }
+
+  /* --- 결과물 체크리스트 --- */
+
+  .outcome-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .outcome-list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .outcome-list li::before {
+    content: "";
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--accent);
+    border-radius: 1px;
+    margin-top: 0.4rem;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">이보라</a>
+    <div class="links">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#topics">강의 주제</a>
+      <a href="index.html#materials">강의자료 · 실습</a>
+      <a href="board.html">게시판</a>
+      <a href="syllabus.html" aria-current="page">강의계획서</a>
+      <a href="index.html#consult">출강 문의</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Syllabus</p>
+  <h1 class="page-title">스마트폰으로 배우는 생활 AI<br>— ChatGPT 기초와 활용</h1>
+  <p class="course-meta">4회 · 회당 2시간 · 총 8시간</p>
+  <p class="page-desc">중장년 시민이 스마트폰으로 생성형 AI를 생활에 활용하는 방법을 배우는 정규 과정입니다. ChatGPT로 질문하기·생활 글쓰기·안내문 요약을 실습하고, 의심스러운 연락을 확인하는 법까지 익힙니다.</p>
+</header>
+
+<section id="audience">
+  <p class="section-label">Audience</p>
+  <h2>강의 대상</h2>
+  <ul class="info-list">
+    <li>
+      <span class="info-term">교육 대상</span>
+      <span class="info-desc">스마트폰으로 ChatGPT를 생활에 활용하고 싶은 중장년 시민</span>
+    </li>
+    <li>
+      <span class="info-term">운영 기관</span>
+      <span class="info-desc">평생학습관, 복지관, 공공도서관, 주민자치센터, 읍·면·동 행정복지센터, 여성인력개발센터 등</span>
+    </li>
+    <li>
+      <span class="info-term">참여 조건</span>
+      <span class="info-desc">카카오톡과 유튜브를 사용할 수 있는 스마트폰 이용자 (PC 사용 능력은 필요하지 않습니다)</span>
+    </li>
+    <li>
+      <span class="info-term">권장 정원</span>
+      <span class="info-desc">강사 단독 진행 시 8~12명 · 13~20명 진행 시 보조 인력 1명 요청</span>
+    </li>
+  </ul>
+</section>
+
+<section id="goals">
+  <p class="section-label">Goals</p>
+  <h2>전체 학습 목표</h2>
+  <p class="page-desc" style="margin-bottom: 1.5rem;">수강생은 과정이 끝난 뒤 다음을 혼자 할 수 있습니다.</p>
+  <ol class="goal-list">
+    <li><span class="goal-num">01</span><span>스마트폰에서 ChatGPT 앱을 열고 생활 질문을 입력할 수 있다.</span></li>
+    <li><span class="goal-num">02</span><span>생활에 필요한 글을 작성하고 자신의 말투로 수정할 수 있다.</span></li>
+    <li><span class="goal-num">03</span><span>사진이나 안내문에서 필요한 내용을 찾아 정리할 수 있다.</span></li>
+    <li><span class="goal-num">04</span><span>ChatGPT로 노랫말을 만들고 수노로 노래를 생성할 수 있다.</span></li>
+    <li><span class="goal-num">05</span><span>AI 답변과 의심스러운 연락을 근거를 들어 확인할 수 있다.</span></li>
+    <li><span class="goal-num">06</span><span>복습 자료를 이용해 수업 내용을 다시 실습할 수 있다.</span></li>
+  </ol>
+</section>
+
+<section id="curriculum">
+  <p class="section-label">Curriculum</p>
+  <h2>4회차 커리큘럼</h2>
+
+  <div class="session-list">
+
+    <article class="session-card">
+      <p class="session-eyebrow">1회차 · 2시간</p>
+      <h3 class="session-title">안전하게 시작하는 AI 첫 대화</h3>
+      <p class="session-goal">학습 목표 · ChatGPT 앱을 설치하고 생활 질문을 직접 입력할 수 있다.</p>
+      <ul class="schedule">
+        <li class="is-today">
+          <span class="schedule-time">15분</span>
+          <span class="schedule-content">「이 연락 믿어도 될까요?」 6문항 자가점검<span class="badge-today">오늘 시연</span></span>
+        </li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">ChatGPT 앱 설치와 로그인</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">AI가 잘하는 일과 주의할 점</span></li>
+        <li><span class="schedule-time">45분</span><span class="schedule-content">좋은 질문의 3요소와 첫 질문 실습</span></li>
+        <li><span class="schedule-time">10분</span><span class="schedule-content">결과 확인과 복습 안내</span></li>
+      </ul>
+      <p class="demo-callout"><strong>오늘 시연 내용</strong> — 1회차 첫 15분 「이 연락 믿어도 될까요?」 자가점검이 오늘 보여드리는 실습입니다. 의심스러운 연락 6가지 사례를 6문항으로 빠르게 점검해 보는 방식입니다.</p>
+      <ul class="session-notes">
+        <li><strong>실습</strong> · 강사가 제시한 생활 미션 카드 중 한 가지를 골라 ChatGPT에 질문하기</li>
+        <li><strong>결과물</strong> · 나의 첫 질문 카드 3장</li>
+        <li><strong>안내</strong> · 개인정보, 비밀번호, 인증번호는 입력하지 않습니다.</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">2회차 · 2시간</p>
+      <h3 class="session-title">AI로 생활 글쓰기</h3>
+      <p class="session-goal">학습 목표 · 생활에 필요한 글을 작성하고 말투와 길이를 수정할 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지난 수업 복습</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">문장 다듬기와 요청 방법</span></li>
+        <li><span class="schedule-time">70분</span><span class="schedule-content">생활 글 작성 실습</span></li>
+        <li><span class="schedule-time">10분</span><span class="schedule-content">내용과 말투 점검</span></li>
+        <li><span class="schedule-time">10분</span><span class="schedule-content">결과 공유와 복습 안내</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>실습</strong> · 가족 인사말, 모임 공지문, 문의 글 중 1개 작성</li>
+        <li><strong>결과물</strong> · AI로 작성하고 직접 수정한 생활 글 1건</li>
+        <li><strong>안내</strong> · 실제 이름과 연락처 대신 가상 정보를 사용하며, 작성한 글은 확인 후 붙여 넣기까지만 실습하고 발송은 수강생이 직접 결정합니다.</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">3회차 · 2시간</p>
+      <h3 class="session-title">AI로 정리하고 노래 만들기</h3>
+      <p class="session-goal">학습 목표 · 사진이나 안내문에서 필요한 내용을 정리하고 자신의 이야기를 담은 AI 노래를 만들 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지난 수업 복습</span></li>
+        <li><span class="schedule-time">25분</span><span class="schedule-content">사진과 안내문 올리고 핵심 내용 찾기</span></li>
+        <li><span class="schedule-time">25분</span><span class="schedule-content">ChatGPT로 짧은 노랫말 만들기</span></li>
+        <li><span class="schedule-time">45분</span><span class="schedule-content">수노로 나만의 노래 만들기</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">완성한 노래 듣고 공유하기</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>실습</strong> · 복지관 안내문, 공공기관 공고문, 여행 일정표 중 1개 요약 / 노래 소재는 고향, 가족, 청춘의 추억, 나에게 보내는 응원 중 1개 선택</li>
+        <li><strong>결과물</strong> · 안내문 요약본 1건과 나만의 AI 노래 링크 1개</li>
+        <li><strong>안내</strong> · 수노 가입과 접속이 어려운 경우 2인 1조로 진행하며, 실제 인물의 민감한 사연이나 개인정보는 노랫말에 넣지 않습니다.</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">4회차 · 2시간</p>
+      <h3 class="session-title">AI 답변과 사기 연락 확인하기</h3>
+      <p class="session-goal">학습 목표 · AI 답변과 의심스러운 연락을 확인하고 판단 근거를 말할 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">20분</span><span class="schedule-content">AI가 틀린 답을 만드는 이유</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">사실 확인 3단계</span></li>
+        <li><span class="schedule-time">25분</span><span class="schedule-content">AI 음성, 딥페이크, 보이스피싱 사례</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">새로운 사례를 보고 판단 근거 말하기</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">과정 정리와 복습 안내</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>판단 기준</strong> · 발신번호, 링크 주소, 개인정보 요구, 재촉하는 표현</li>
+        <li><strong>결과물</strong> · AI 사기 판별 체크리스트와 나의 판단 기록지</li>
+        <li><strong>안내</strong> · 첫 회차와 다른 사례를 사용해 판단 근거의 변화를 확인합니다.</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<section id="outcomes">
+  <p class="section-label">Outcomes</p>
+  <h2>수강생이 가져갈 결과물</h2>
+  <ul class="outcome-list">
+    <li>나의 AI 질문 카드 3장</li>
+    <li>AI로 작성하고 직접 수정한 생활 글 1건</li>
+    <li>안내문 또는 일정 요약본 1건</li>
+    <li>나의 이야기를 담은 AI 노래 링크 1개</li>
+    <li>AI 사기 판별 체크리스트</li>
+    <li>나의 판단 기록지</li>
+    <li>회차별 복습 자료와 접속 링크</li>
+  </ul>
+</section>
+
+<footer>
+  <span class="footer-name">이보라</span>
+  <span>© 2026 이보라. AI 리터러시 강사</span>
+</footer>
+
+</body>
+</html>
