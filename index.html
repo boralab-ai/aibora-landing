@@ -371,6 +371,28 @@
     }
   }
 
+  .c-optional {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-left: 0.35rem;
+  }
+
+  .c-consent-note {
+    margin: 0.7rem 0 0;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .c-submit-note {
+    margin: 0.85rem 0 0;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
   .consult-success {
     padding: 2.5rem 0;
     text-align: center;
@@ -481,7 +503,6 @@
       <a href="index.html#about">소개</a>
       <a href="index.html#topics">강의 주제</a>
       <a href="index.html#materials">강의자료 · 실습</a>
-      <a href="board.html">게시판</a>
       <a href="programs.html">강의 프로그램</a>
       <a href="index.html#consult">출강 문의</a>
     </div>
@@ -602,7 +623,7 @@
 <section id="materials">
   <p class="section-label">Materials</p>
   <h2>강의자료 · 실습</h2>
-  <p class="materials-desc">시연용 강의 자료와 실습 페이지입니다. 순차적으로 공개될 예정입니다.</p>
+  <p class="materials-desc">강의에 사용한 교안과 수강생용 실습 페이지입니다.</p>
   <div class="cta-row" style="margin-bottom: 1.75rem;">
     <a class="btn btn-ghost" href="programs.html">대표 강의 프로그램 보기</a>
   </div>
@@ -626,6 +647,21 @@
     <div class="c-field">
       <label for="c-org" class="c-label">기관명 <span class="req">*</span></label>
       <input type="text" id="c-org" name="org" class="c-input" placeholder="예: OO평생학습관" required>
+    </div>
+
+    <div class="c-field">
+      <label for="c-name" class="c-label">담당자 성함 <span class="req">*</span></label>
+      <input type="text" id="c-name" name="name" class="c-input" placeholder="예: 김OO 주무관" required>
+    </div>
+
+    <div class="c-field">
+      <label for="c-email" class="c-label">회신받을 이메일 <span class="req">*</span></label>
+      <input type="email" id="c-email" name="email" class="c-input" placeholder="예: name@example.com" required>
+    </div>
+
+    <div class="c-field">
+      <label for="c-tel" class="c-label">연락처 <span class="c-optional">선택</span></label>
+      <input type="tel" id="c-tel" name="tel" class="c-input" placeholder="예: 061-000-0000">
     </div>
 
     <fieldset class="c-field">
@@ -686,7 +722,16 @@
       <textarea id="c-note" name="note" class="c-input c-textarea" placeholder="궁금한 점이나 요청 사항을 자유롭게 남겨주세요."></textarea>
     </div>
 
+    <div class="c-field c-consent">
+      <label class="choice-card choice-card-inline">
+        <input type="checkbox" id="c-agree" name="agree" required>
+        <span>개인정보 수집·이용에 동의합니다 <span class="req">*</span></span>
+      </label>
+      <p class="c-consent-note">수집 항목은 기관명·담당자 성함·이메일·연락처와 문의 내용이며, 출강 상담 회신 목적으로만 사용합니다. 작성하신 내용은 별도 서버에 저장되지 않고 <strong>ggamimon1004@gmail.com</strong> 으로 보내는 메일에 담깁니다. 동의를 원하지 않으시면 아래 메일 주소로 직접 연락해 주셔도 됩니다.</p>
+    </div>
+
     <button type="submit" class="btn btn-primary btn-consult-submit">출강 상담 신청하기</button>
+    <p class="c-submit-note">버튼을 누르면 사용하시는 메일 앱이 열리고 작성하신 내용이 자동으로 담깁니다. <strong>메일 앱에서 보내기를 눌러야 접수됩니다.</strong></p>
   </form>
 
   <div class="consult-success" id="consult-success" hidden tabindex="-1" aria-live="polite">
@@ -743,6 +788,9 @@
     var courses = fd.getAll('courses');
     return {
       '기관명': (fd.get('org') || '').trim(),
+      '담당자 성함': (fd.get('name') || '').trim(),
+      '회신 이메일': (fd.get('email') || '').trim(),
+      '연락처': (fd.get('tel') || '').trim() || '미기재',
       '교육 대상': fd.get('audience') || '',
       '예상 인원': fd.get('size') || '',
       '관심 강의': courses.length ? courses.join(', ') : '선택 없음',
@@ -760,7 +808,8 @@
   }
 
   function mailtoUrl(data) {
-    var subject = '[출강 상담] ' + (data['기관명'] || '기관명 미기재');
+    var subject = '[출강 상담] ' + (data['기관명'] || '기관명 미기재') +
+      (data['담당자 성함'] ? ' / ' + data['담당자 성함'] : '');
     return 'mailto:' + CONTACT_EMAIL +
       '?subject=' + encodeURIComponent(subject) +
       '&body=' + encodeURIComponent(toText(data));
