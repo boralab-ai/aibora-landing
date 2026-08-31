@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이보라 | 중장년 AI 리터러시 강사 · 출강 문의</title>
 <meta name="description" content="복지관·평생학습관·기관의 50·60대 시민을 위한 AI 강의. ChatGPT 기초부터 스마트폰 AI 활용까지, 2시간 특강·4회 정규과정으로 진행합니다. 출강 문의 환영.">
-<link rel="canonical" href="./index.html">
-<!-- 카카오톡·문자로 링크를 보낼 때 뜨는 미리보기입니다.
-     배포 후 아래 4곳의 https://예시주소 를 실제 주소로 바꿔주세요. -->
+<link rel="canonical" href="https://aibora.kr/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%231C2233%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2226%22%20r%3D%229%22%20fill%3D%22%23F5B942%22/%3E%3Cpath%20d%3D%22M14%2052c0-9.4%208.1-15%2018-15s18%205.6%2018%2015z%22%20fill%3D%22%23F3F4EE%22/%3E%3C/svg%3E">
+<!-- 카카오톡·문자로 링크를 보낼 때 뜨는 미리보기입니다. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="이보라 — AI 리터러시 강사">
 <meta property="og:title" content="이보라 | 중장년 AI 리터러시 강사">
 <meta property="og:description" content="복지관·평생학습관 50·60대 시민 대상 AI 강의. 2시간 특강부터 4회 정규과정까지 기관 상황에 맞춰 구성합니다.">
-<meta property="og:image" content="https://예시주소/images/profile.jpg">
-<meta property="og:url" content="https://예시주소/">
+<meta property="og:image" content="https://aibora.kr/images/profile.jpg">
+<meta property="og:url" content="https://aibora.kr/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +72,72 @@
   }
   .about p:last-child { margin-bottom: 0; }
 
+  .profile-lead {
+    max-width: 56ch;
+    color: var(--ink);
+    margin: 0 0 2rem;
+    font-size: 1.06rem;
+    line-height: 1.8;
+  }
+
+  .credential-grid {
+    list-style: none;
+    margin: 0 0 1.6rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .credential-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.35rem 1.4rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+  }
+
+  .cred-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--accent);
+    padding-left: 0.5rem;
+    line-height: 1;
+  }
+
+  .cred-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.16rem;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .cred-desc {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .profile-note {
+    max-width: 58ch;
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .credential-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+    .cred-title { font-size: 1.08rem; }
+    .cred-desc { font-size: 0.93rem; }
+  }
+
   .video-embed {
     position: relative;
     width: 100%;
@@ -122,6 +188,13 @@
     color: var(--ink-soft);
     font-size: 0.98rem;
     line-height: 1.6;
+  }
+
+  .topic-lead {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
   }
 
   @media (max-width: 560px) {
@@ -432,10 +505,32 @@
 </header>
 
 <section id="about" class="about">
-  <p class="section-label">About</p>
-  <h2>어려운 AI를, 알아들을 수 있는 말로</h2>
-  <p>50·60대 수강생의 눈높이에서 시작합니다. 용어를 외우는 수업이 아니라, 강의가 끝난 그날 스마트폰으로 직접 해보게 만드는 것이 목표입니다. 손동작 하나까지 따라 할 수 있게 설계된 실습 중심 강의입니다.</p>
-  <p>복지관·평생학습관·주민센터 등 기관 시민교육을 중심으로, 2시간 단회 특강부터 4회 8시간 정규과정까지 대상과 목적에 맞춰 구성해 진행합니다.</p>
+  <p class="section-label">Profile</p>
+  <h2>사람을 이해하는 경험, 생활에 닿는 AI 교육</h2>
+  <p class="profile-lead">교육·상담·사업 운영의 현장 경험을 바탕으로, 중장년이 스마트폰으로 직접 해보는 생활 AI 수업을 만듭니다.</p>
+  <ul class="credential-grid">
+    <li class="credential-card">
+      <span class="cred-tag">교육</span>
+      <span class="cred-title">학원 강사 10년</span>
+      <p class="cred-desc">어려운 내용을 이해하기 쉽게 설명하는 수업 경험</p>
+    </li>
+    <li class="credential-card">
+      <span class="cred-tag">학교</span>
+      <span class="cred-title">생활지도 교사</span>
+      <p class="cred-desc">학생의 일상과 성장을 가까이에서 지원한 경험</p>
+    </li>
+    <li class="credential-card">
+      <span class="cred-tag">상담</span>
+      <span class="cred-title">직업상담사</span>
+      <p class="cred-desc">이야기를 듣고 현실적인 다음 단계를 함께 찾은 경험</p>
+    </li>
+    <li class="credential-card">
+      <span class="cred-tag">사업</span>
+      <span class="cred-title">온라인 쇼핑몰 운영 약 5년</span>
+      <p class="cred-desc">고객 응대·상품 설명·주문과 문서 업무를 직접 운영한 경험</p>
+    </li>
+  </ul>
+  <p class="profile-note">복지관·평생학습관·주민센터 등 기관 시민교육을 중심으로, 2시간 단회 특강부터 4회 8시간 정규과정까지 대상과 목적에 맞춰 구성해 진행합니다.</p>
 </section>
 
 <section id="video">
@@ -490,7 +585,7 @@
     </li>
     <li>
       <span class="topic-name">업무·자영업 AI 활용</span>
-      <span class="topic-desc">가게 홍보 문구, 안내문, 견적·메일 작성 등 일에 바로 붙이는 활용</span>
+      <span class="topic-desc"><strong class="topic-lead">혼자 처리하던 글쓰기와 정리 업무, AI와 함께 더 빠르고 명확하게</strong>고객 문의 답변, 상품 설명과 홍보 문구, 안내문, 견적 요청과 업무 이메일, 긴 자료의 핵심 정리까지. 온라인 쇼핑몰을 직접 운영한 경험을 바탕으로 1인 사업자가 오늘 업무에 바로 적용할 수 있는 AI 활용법을 다룹니다.</span>
     </li>
     <li>
       <span class="topic-name">바이브코딩 체험</span>

@@ -10,6 +10,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 <style>
+  .lesson-next {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem 1.75rem 3rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .lesson-next-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+  }
+
+  .lesson-next-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
   .page-header {
     padding: clamp(2.75rem, 7vw, 4rem) 1.75rem 2.5rem;
     max-width: 720px;
@@ -156,6 +178,16 @@
     <p>사기꾼은 생각할 시간부터 빼앗습니다.</p>
     <p>오늘은 2문항만 함께 풀어보았습니다. 나머지 8문항도 천천히 풀어보며 위험 신호를 확인해보세요.<br>수업이 끝난 뒤에도 보라쌤의 웹사이트 aibora.kr에서 오늘의 교안과 10문항 실습을 다시 확인하며 복습할 수 있습니다.</p>
     <p>감사합니다.</p>
+  </div>
+</section>
+
+<section class="lesson-next">
+  <p class="lesson-next-label">이어서 해보기</p>
+  <div class="lesson-next-row">
+    <a class="btn btn-primary" href="https://voice-phishing-quiz.vercel.app">10문항 실습 시작하기</a>
+    <a class="btn btn-ghost" href="../programs.html">강의 프로그램 보기</a>
+    <a class="btn btn-ghost" href="../index.html#consult">출강 문의하기</a>
+    <a class="btn btn-ghost" href="../index.html">보라쌤 홈으로</a>
   </div>
 </section>
 
