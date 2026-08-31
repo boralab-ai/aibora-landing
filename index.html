@@ -426,6 +426,16 @@
     border-top: 1px solid var(--line);
   }
 
+  .consult-ways {
+    margin: 0 0 1rem;
+    padding-left: 1.2rem;
+    color: var(--ink);
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+
+  .consult-ways li { margin-bottom: 0.35rem; }
+
   .consult-manual-help {
     max-width: none !important;
     margin: 0 !important;
@@ -731,7 +741,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary btn-consult-submit">출강 상담 신청하기</button>
-    <p class="c-submit-note">버튼을 누르면 사용하시는 메일 앱이 열리고 작성하신 내용이 자동으로 담깁니다. <strong>메일 앱에서 보내기를 눌러야 접수됩니다.</strong></p>
+    <p class="c-submit-note">버튼을 누르면 작성하신 내용이 담긴 메일이 준비됩니다. <strong>메일 앱 또는 Gmail 웹에서 보내기를 눌러야 접수됩니다.</strong> 바로 전화·메일로 연락 주셔도 됩니다.</p>
   </form>
 
   <div class="consult-success" id="consult-success" hidden tabindex="-1" aria-live="polite">
@@ -739,10 +749,16 @@
     <p id="consult-success-desc">남겨주신 내용을 확인한 뒤 빠른 시일 내에 연락드리겠습니다.</p>
 
     <div class="consult-manual" id="consult-manual" hidden>
-      <p class="consult-manual-help">메일 앱이 열리지 않았다면, 아래 내용을 복사해 <strong id="consult-email"></strong> 으로 보내주세요.</p>
+      <p class="consult-manual-help">아래 <strong>세 가지 중 편한 방법</strong>으로 보내주시면 접수됩니다. 받는 주소는 <strong id="consult-email"></strong> 입니다.</p>
+      <ol class="consult-ways">
+        <li>방금 열린 <strong>메일 앱에서 보내기</strong>를 누르기</li>
+        <li>메일 앱이 안 열렸다면 <strong>「Gmail 웹에서 열기」</strong> 누르기 (설치 없이 브라우저에서 바로 열립니다)</li>
+        <li>그래도 어려우면 아래 내용을 <strong>복사해서 직접 메일</strong>로 보내기</li>
+      </ol>
       <textarea class="c-input c-textarea" id="consult-summary" readonly></textarea>
       <div class="cta-row">
-        <button type="button" class="btn btn-primary" id="consult-copy">내용 복사하기</button>
+        <a class="btn btn-primary" id="consult-gmail" href="#" target="_blank" rel="noopener">Gmail 웹에서 열기</a>
+        <button type="button" class="btn btn-ghost" id="consult-copy">내용 복사하기</button>
         <a class="btn btn-ghost" id="consult-mail-again" href="#">메일 앱 다시 열기</a>
       </div>
     </div>
@@ -771,6 +787,7 @@
   var manual = document.getElementById('consult-manual');
   var summaryBox = document.getElementById('consult-summary');
   var mailAgain = document.getElementById('consult-mail-again');
+  var gmailBtn = document.getElementById('consult-gmail');
   var copyBtn = document.getElementById('consult-copy');
   var submitBtn = form.querySelector('button[type="submit"]');
   var dateInput = document.getElementById('c-date');
@@ -807,11 +824,22 @@
     return lines.join('\n');
   }
 
-  function mailtoUrl(data) {
-    var subject = '[출강 상담] ' + (data['기관명'] || '기관명 미기재') +
+  function mailSubject(data) {
+    return '[출강 상담] ' + (data['기관명'] || '기관명 미기재') +
       (data['담당자 성함'] ? ' / ' + data['담당자 성함'] : '');
+  }
+
+  function mailtoUrl(data) {
+    var subject = mailSubject(data);
     return 'mailto:' + CONTACT_EMAIL +
       '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(toText(data));
+  }
+
+  function gmailUrl(data) {
+    return 'https://mail.google.com/mail/?view=cm&fs=1' +
+      '&to=' + encodeURIComponent(CONTACT_EMAIL) +
+      '&su=' + encodeURIComponent(mailSubject(data)) +
       '&body=' + encodeURIComponent(toText(data));
   }
 
@@ -823,10 +851,11 @@
       successDesc.textContent = '남겨주신 내용을 확인한 뒤 빠른 시일 내에 연락드리겠습니다.';
       manual.hidden = true;
     } else {
-      successTitle.textContent = '메일 앱에서 전송 버튼을 눌러주세요.';
-      successDesc.textContent = '작성하신 내용이 담긴 메일이 열립니다. 보내기를 눌러야 접수됩니다.';
+      successTitle.textContent = '아직 접수되지 않았습니다 — 한 단계가 남았습니다.';
+      successDesc.textContent = '이 사이트는 메일을 대신 보내지 않습니다. 아래 방법 중 하나로 보내주셔야 접수됩니다.';
       summaryBox.value = toText(data);
       mailAgain.href = mailtoUrl(data);
+      gmailBtn.href = gmailUrl(data);
       manual.hidden = false;
     }
     success.focus();
