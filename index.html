@@ -739,11 +739,11 @@
         <input type="checkbox" id="c-agree" name="agree" required>
         <span>개인정보 수집·이용에 동의합니다 <span class="req">*</span></span>
       </label>
-      <p class="c-consent-note">수집 항목은 기관명·담당자 성함·이메일·연락처와 문의 내용이며, 출강 상담 회신 목적으로만 사용합니다. 작성하신 내용은 별도 서버에 저장되지 않고 <strong>ggamimon1004@gmail.com</strong> 으로 보내는 메일에 담깁니다. 동의를 원하지 않으시면 아래 메일 주소로 직접 연락해 주셔도 됩니다.</p>
+      <p class="c-consent-note">수집 항목은 기관명·담당자 성함·이메일·연락처와 문의 내용이며, 출강 상담 회신 목적으로만 사용합니다. 작성하신 내용은 폼 전송 서비스(Formspree)를 거쳐 <strong>ggamimon1004@gmail.com</strong> 으로 전달되며, 상담 회신 후 보관하지 않습니다. 동의를 원하지 않으시면 아래 메일 주소로 직접 연락해 주셔도 됩니다.</p>
     </div>
 
     <button type="submit" class="btn btn-primary btn-consult-submit">출강 상담 신청하기</button>
-    <p class="c-submit-note">버튼을 누르면 작성하신 내용이 담긴 메일이 준비됩니다. <strong>메일 앱 또는 Gmail 웹에서 보내기를 눌러야 접수됩니다.</strong> 바로 전화·메일로 연락 주셔도 됩니다.</p>
+    <p class="c-submit-note">버튼을 누르면 <strong>바로 접수됩니다.</strong> 메일 앱을 여실 필요 없습니다. 확인 후 1~2일 내에 회신드립니다. 급하시면 아래 전화·메일로 바로 연락 주셔도 됩니다.</p>
   </form>
 
   <div class="consult-success" id="consult-success" hidden tabindex="-1" aria-live="polite">
@@ -780,7 +780,7 @@
                       그 순간부터 메일 앱 없이 곧바로 접수됩니다.
      ───────────────────────────────────────────────────────────── */
   var CONTACT_EMAIL = 'ggamimon1004@gmail.com';
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = 'https://formspree.io/f/mjyvywkp';
 
   var form = document.getElementById('consult-form');
   var success = document.getElementById('consult-success');
@@ -871,10 +871,15 @@
     if (FORM_ENDPOINT) {
       submitBtn.disabled = true;
       submitBtn.textContent = '보내는 중…';
+      var payload = {};
+      for (var k in data) { if (data.hasOwnProperty(k)) payload[k] = data[k]; }
+      payload['_subject'] = mailSubject(data);
+      payload['email'] = data['회신 이메일'];
+
       fetch(FORM_ENDPOINT, {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       }).then(function (res) {
         showSuccess(res.ok, data);
       }).catch(function () {
