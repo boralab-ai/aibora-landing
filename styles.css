@@ -289,3 +289,11 @@ footer .footer-name {
   font-style: italic;
   color: var(--ink);
 }
+
+footer .footer-contact a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+footer .footer-contact a:hover { border-bottom-color: var(--ink-soft); }
