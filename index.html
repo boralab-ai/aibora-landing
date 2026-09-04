@@ -694,6 +694,43 @@
       gap: 0.3rem;
     }
   }
+
+  .ops-value a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+  }
+  .ops-value a:hover { background: var(--surface-2); }
+
+  .ops-docs {
+    margin-top: 2.25rem;
+    padding: 1.75rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    background: var(--surface);
+  }
+
+  .ops-docs-lead {
+    margin: 0 0 1.25rem;
+    color: var(--ink);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    max-width: 50ch;
+  }
+
+  .ops-docs-note {
+    margin: 1.1rem 0 0;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 560px) {
+    .ops-docs { padding: 1.35rem; }
+    .ops-docs .cta-row { flex-direction: column; }
+    .ops-docs .btn { width: 100%; justify-content: center; }
+  }
 </style>
 </head>
 <body>
@@ -841,7 +878,7 @@
     </li>
     <li>
       <span class="ops-label">수업 전 제공</span>
-      <span class="ops-value"><strong>「수강생 계정 준비 안내문」 1부</strong>를 기관에 미리 보내 드립니다. 첫 수업에서 가장 많은 시간을 잡아먹는 계정·비밀번호 문제를 수업 전에 해결하기 위한 자료입니다.</span>
+      <span class="ops-value"><strong><a href="prep.html">「수강생 계정 준비 안내문」</a> 1부</strong>를 기관에 미리 보내 드립니다. 첫 수업에서 가장 많은 시간을 잡아먹는 계정·비밀번호 문제를 수업 전에 해결하기 위한 자료입니다. <a href="prep.html">지금 바로 보실 수 있습니다 →</a></span>
     </li>
     <li>
       <span class="ops-label">수업 후 제공</span>
@@ -852,6 +889,15 @@
       <span class="ops-value">기관 규정 단가에 맞춰 협의합니다. 회차·인원·이동 거리에 따라 조정 가능합니다.</span>
     </li>
   </ul>
+
+  <div class="ops-docs">
+    <p class="ops-docs-lead">결재·품의에 필요한 자료를 미리 준비해 두었습니다. 따로 요청하지 않으셔도 바로 받아 보실 수 있습니다.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="aibora-brochure.pdf" download="이보라_AI강의_출강안내서.pdf">출강 안내서 내려받기 (PDF · A4 3장)</a>
+      <a class="btn btn-ghost" href="prep.html">수강생 계정 준비 안내문 보기</a>
+    </div>
+    <p class="ops-docs-note">출강 안내서에는 강사 약력, 2026년 이수 이력, 프로그램 2종과 회차별 커리큘럼, 출강 조건, 성과자료 양식 견본이 담겨 있습니다.</p>
+  </div>
 </section>
 
 <section id="materials">
