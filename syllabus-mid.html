@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중급 강의계획서 | 이보라 — AI 리터러시 강사</title>
+<meta name="description" content="PC로 완성하는 업무 AI 8회 과정의 강의계획서입니다. 대상, 학습 목표, 회차별 커리큘럼과 결과물을 확인하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-header {
+    padding: clamp(2.75rem, 7vw, 4rem) 1.75rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    line-height: 1.25;
+    margin: 0 0 0.9rem;
+    text-wrap: balance;
+  }
+
+  .page-desc {
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .course-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+  }
+
+  /* --- 기초 / 중급 전환 --- */
+
+  .course-switch {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.6rem 0 0;
+    flex-wrap: wrap;
+  }
+
+  .course-switch a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.42rem 0.95rem;
+    transition: color .15s, border-color .15s;
+  }
+
+  .course-switch a:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+  .course-switch a.is-current {
+    color: var(--ink);
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* --- 대상 / 목표 목록 (index.html topics-list와 같은 시각 언어) --- */
+
+  .info-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .info-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 8rem) 1fr;
+    gap: 0.5rem 1.75rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .info-list li:first-child { border-top: none; padding-top: 0; }
+  .info-list li:last-child { padding-bottom: 0; }
+
+  .info-term {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+
+  .info-desc {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 560px) {
+    .info-list li {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+
+  .goal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .goal-list li {
+    display: flex;
+    gap: 0.9rem;
+    align-items: baseline;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  .goal-num {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    padding-top: 0.15rem;
+  }
+
+  /* --- 회차 카드 (index.html material-card와 같은 시각 언어) --- */
+
+  .session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .session-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.75rem;
+    background: var(--surface);
+  }
+
+  .session-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+  }
+
+  .session-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+
+  .session-goal {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0 0 1.3rem;
+    line-height: 1.6;
+  }
+
+  .schedule {
+    list-style: none;
+    margin: 0 0 1.3rem;
+    padding: 0;
+  }
+
+  .schedule li {
+    display: grid;
+    grid-template-columns: minmax(0, 4rem) 1fr;
+    gap: 0.4rem 1rem;
+    padding: 0.65rem 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .schedule li:first-child { border-top: none; padding-top: 0; }
+  .schedule li:last-child { padding-bottom: 0; }
+
+  .schedule-time {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .schedule-content {
+    font-size: 0.96rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .session-intro {
+    margin: 0 0 1rem;
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.75;
+  }
+
+  .session-notes {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .session-notes li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  @media (max-width: 480px) {
+    .schedule li {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+  }
+
+  /* --- 결과물 체크리스트 --- */
+
+  .outcome-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .outcome-list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .outcome-list li::before {
+    content: "";
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--accent);
+    border-radius: 1px;
+    margin-top: 0.4rem;
+  }
+
+  /* --- 운영 안내 --- */
+
+  .note-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .note-list li {
+    padding-left: 0.95rem;
+    border-left: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">이보라</a>
+    <div class="links">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#topics">강의 주제</a>
+      <a href="syllabus.html" aria-current="page">강의계획서</a>
+      <a href="index.html#operation">출강 조건</a>
+      <a href="index.html#blog">블로그</a>
+      <a href="index.html#consult">출강 문의</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Syllabus</p>
+  <h1 class="page-title">PC로 완성하는 업무 AI</h1>
+  <p class="course-meta">8회 · 회당 2시간 · 총 16시간 · 중급</p>
+  <p class="page-desc">AI를 써봤지만 원하는 결과를 얻지 못했던 분을 위한 다음 단계입니다. 같은 질문을 고쳐 <strong>다시 시키는 법</strong>에서 시작해 자료조사·문서작성·엑셀 분석·발표자료 제작을 거쳐, 반복 업무를 맡길 <strong>나만의 AI 업무비서</strong>까지 완성합니다.</p>
+  <div class="course-switch">
+    <a href="syllabus.html">기초 · 4회</a>
+    <a href="syllabus-mid.html" class="is-current">중급 · 8회</a>
+  </div>
+</header>
+
+<section id="audience">
+  <p class="section-label">Audience</p>
+  <h2>강의 대상</h2>
+  <ul class="info-list">
+    <li>
+      <span class="info-term">교육 대상</span>
+      <span class="info-desc">생성형 AI를 사용해 본 경험이 있고, 생활과 업무에 더 깊이 활용하고 싶은 신중년(만 45~64세 중심)</span>
+    </li>
+    <li>
+      <span class="info-term">추천 대상</span>
+      <span class="info-desc">재직자, 행정·사무 종사자, 강사·상담사, 취업 준비자, 소상공인, 프리랜서</span>
+    </li>
+    <li>
+      <span class="info-term">선수 경험</span>
+      <span class="info-desc">AI에 질문해 본 적이 있고, 로그인과 파일 첨부를 스스로 할 수 있는 분 — 기초과정 「스마트폰으로 배우는 생활 AI」 수료자가 이어서 듣기 좋습니다</span>
+    </li>
+    <li>
+      <span class="info-term">운영 기관</span>
+      <span class="info-desc">평생학습관, 공공도서관, 여성인력개발센터, 신중년일자리센터, 복지관 등</span>
+    </li>
+    <li>
+      <span class="info-term">교육 환경</span>
+      <span class="info-desc">인터넷이 연결된 1인 1PC 실습실 (개인 노트북 지참은 권장이며 의무가 아닙니다)</span>
+    </li>
+    <li>
+      <span class="info-term">권장 정원</span>
+      <span class="info-desc">10명 — 개인별 업무 결과물을 완성하는 실습과정이라, 개별 피드백을 위해 소수로 운영합니다</span>
+    </li>
+  </ul>
+</section>
+
+<section id="goals">
+  <p class="section-label">Goals</p>
+  <h2>전체 학습 목표</h2>
+  <p class="page-desc" style="margin-bottom: 1.5rem;">수강생은 과정이 끝난 뒤 다음을 혼자 할 수 있습니다.</p>
+  <ol class="goal-list">
+    <li><span class="goal-num">01</span><span>원하는 결과가 나올 때까지 지시문을 고쳐 다시 시킬 수 있다.</span></li>
+    <li><span class="goal-num">02</span><span>검색 결과의 출처를 열어 사실·날짜·숫자를 확인할 수 있다.</span></li>
+    <li><span class="goal-num">03</span><span>긴 문서와 엑셀 자료를 분석해 이메일·보고서·표로 완성할 수 있다.</span></li>
+    <li><span class="goal-num">04</span><span>발표자료와 업무용 이미지를 직접 만들 수 있다.</span></li>
+    <li><span class="goal-num">05</span><span>반복 업무를 대신할 나만의 AI 업무비서를 만들어 계속 사용할 수 있다.</span></li>
+  </ol>
+</section>
+
+<section id="curriculum">
+  <p class="section-label">Curriculum</p>
+  <h2>8회차 커리큘럼</h2>
+
+  <div class="session-list">
+
+    <article class="session-card">
+      <p class="session-eyebrow">1회차 · 2시간</p>
+      <h3 class="session-title">내 지시가 왜 안 먹히는가</h3>
+      <p class="session-goal">학습 목표 · 막연한 질문과 업무 지시의 차이를 알고, 목적·대상·조건·형식을 넣어 원하는 결과가 나올 때까지 다시 시킬 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지금 쓰는 방식 점검 — 같은 질문, 다른 결과</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">업무지시문의 5요소 — 목적·대상·참고자료·조건·형식</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">막연한 지시를 업무지시문으로 바꿔 보기</span></li>
+        <li><span class="schedule-time">40분</span><span class="schedule-content">내 업무 지시문 만들기 · 업무별 대화방 정리하기</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">서로의 지시문 비교와 보완</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">오늘의 AI 활용 판단카드 작성</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>도입</strong> · 같은 업무를 세 사람이 물었을 때 결과가 왜 달라지는지를 화면에서 나란히 보여드립니다. 기능 설명이 아니라 "내가 왜 매번 아쉬웠는지"를 알아차리는 지점에서 시작합니다.</li>
+        <li><strong>사용 기능</strong> · ChatGPT 대화 · 음성 입력 · 파일 첨부 · 프로젝트</li>
+        <li><strong>결과물</strong> · 내 업무 지시문 3개 · 나의 AI 업무실 1개</li>
+        <li><strong>안내</strong> · 첫 회차에 참석하지 못한 분께는 다음 회차 시작 전 10분간 개별 안내를 제공합니다.</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">2회차 · 2시간</p>
+      <h3 class="session-title">최신 정보를 찾아 출처까지 확인하기</h3>
+      <p class="session-goal">학습 목표 · 조건을 넣어 최신 정보를 조사하고, 답변에 표시된 출처를 열어 광고성 정보와 공신력 있는 정보를 구분할 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지난주에 실제로 써 본 경험 나누기</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">일반 대화와 웹 검색의 차이 · 출처 열어보기</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">기간·지역·조건을 넣어 조사하기</span></li>
+        <li><span class="schedule-time">40분</span><span class="schedule-content">내 업무 관련 세 가지 선택지를 비교표로 정리</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">결과 비교 · 광고성 정보 가려내기</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">오늘의 AI 활용 판단카드 작성</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>실습 소재</strong> · 지역 지원사업 / 교육·자격과정 / 업무용 제품·서비스 / 행사 장소 / 채용 기업 중 자신의 업무와 가까운 것을 선택합니다.</li>
+        <li><strong>사용 기능</strong> · ChatGPT 웹 검색 · 출처 표시 · 후속 질문</li>
+        <li><strong>결과물</strong> · 출처가 포함된 비교표 1건 · A4 한 장 판단 자료</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">3회차 · 2시간</p>
+      <h3 class="session-title">AI가 지어낸 말 잡아내기</h3>
+      <p class="session-goal">학습 목표 · AI가 없는 사실을 만들어내는 상황을 직접 확인하고, 출처·날짜·발행기관을 대조하는 3단계 확인 습관을 익힐 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지난주 조사 결과 점검</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">그럴듯하지만 틀린 답이 나오는 순간 재현하기</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">확인 3단계 — 출처 · 날짜 · 발행기관</span></li>
+        <li><span class="schedule-time">35분</span><span class="schedule-content">내 자료의 숫자와 날짜를 원문과 대조하기</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">짝과 서로의 결과물 검증해 주기</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">오늘의 AI 활용 판단카드 작성</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>실습</strong> · 같은 주제를 두 도구에 물어 결과를 대조하고, 서로 다른 부분만 원문으로 확인합니다.</li>
+        <li><strong>사용 기능</strong> · ChatGPT 검색 · Gemini 교차 확인</li>
+        <li><strong>결과물</strong> · 사실 확인 3단계 카드 1장 (이후 회차에서 계속 사용)</li>
+        <li><strong>안내</strong> · 주민등록번호, 계좌번호, 기관 비공개 자료는 입력하지 않습니다.</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">4회차 · 2시간</p>
+      <h3 class="session-title">긴 문서에서 내게 필요한 것만 꺼내기</h3>
+      <p class="session-goal">학습 목표 · 공고문·약관·안내문을 올려 대상·기간·금액·제출서류를 찾고, 내가 해당되는지 판단해 업무 문서로 바꿀 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지난주 확인 습관 점검</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">문서 올리기와 조건 뽑아내기 시연</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">공고문에서 대상·기간·제출서류 찾기</span></li>
+        <li><span class="schedule-time">40분</span><span class="schedule-content">내 업무 문서를 이메일·회의록·보고서로 만들기</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">결과 공유 · 빠진 내용 찾아주기</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">오늘의 AI 활용 판단카드 작성</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>직무별 선택</strong> · 사무·재취업은 업무 이메일과 회의록, 강의·상담은 수강생 안내문과 체크리스트, 자영업·프리랜서는 고객 응대문을 만듭니다. <strong>절차는 같고 재료만 다릅니다.</strong></li>
+        <li><strong>사용 기능</strong> · ChatGPT 파일 첨부 · 문서 요약 · 형식 변환</li>
+        <li><strong>결과물</strong> · 공고문 요약표 1건 · 업무 문서 1건</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">5회차 · 2시간</p>
+      <h3 class="session-title">숫자 자료를 읽고 설명하기</h3>
+      <p class="session-goal">학습 목표 · 엑셀 자료를 올려 합계·증감·이상값을 찾고, 표와 그래프로 정리해 근거 있는 업무 문장으로 바꿀 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지난주 문서 작업 점검</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">엑셀 파일을 읽히고 분석 목적 설명하기</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">합계·평균·증감률 계산과 이상값 찾기</span></li>
+        <li><span class="schedule-time">40분</span><span class="schedule-content">내 자료 분석하고 표·그래프 만들기</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">숫자를 업무 문장으로 바꾸기 · 원자료 대조</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">오늘의 AI 활용 판단카드 작성</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>실습 자료</strong> · 매출표, 교육 출석·만족도 자료 등 교육용 예제를 제공하며, 개인정보를 지운 본인 자료를 사용해도 됩니다.</li>
+        <li><strong>사용 기능</strong> · ChatGPT 데이터 분석 (엑셀·CSV)</li>
+        <li><strong>결과물</strong> · 데이터 분석표와 그래프 1건 · 숫자에 근거한 업무 요약문</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">6회차 · 2시간</p>
+      <h3 class="session-title">보여줄 수 있는 형태로 만들기</h3>
+      <p class="session-goal">학습 목표 · 앞 회차에서 만든 자료를 보고서·발표자료·업무용 이미지로 바꾸고, 보는 사람에 따라 형태를 달리할 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">지난주 분석 결과 점검</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">문서·발표자료·이미지 만들기 시연</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">앞 회차 결과물을 보고서로 바꾸기</span></li>
+        <li><span class="schedule-time">40분</span><span class="schedule-content">발표자료 또는 홍보 이미지 만들기</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">결과물 함께 보고 전달력 점검하기</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">오늘의 AI 활용 판단카드 작성</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>직무별 선택</strong> · 교육 프로그램 모집 이미지 / 상품 홍보 이미지 / 행사 안내 이미지 / 서비스 소개자료 중 자신의 업무에 필요한 것을 만듭니다.</li>
+        <li><strong>사용 기능</strong> · Gemini Canvas · 문서·슬라이드 생성 · 이미지 생성 · 문서 내보내기</li>
+        <li><strong>결과물</strong> · A4 보고서 또는 5장 발표자료 · 업무용 이미지 1장</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">7회차 · 2시간</p>
+      <h3 class="session-title">같은 설명을 두 번 하지 않기</h3>
+      <p class="session-goal">학습 목표 · 매번 처음부터 설명하지 않도록 반복 업무를 맡길 나만의 AI 업무비서를 만들고, 시험 질문으로 확인해 고칠 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">내가 매주 반복하는 업무 찾기</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">일반 대화와 맞춤형 업무비서의 차이</span></li>
+        <li><span class="schedule-time">30분</span><span class="schedule-content">역할·지켜야 할 기준·답변 형식 정하고 만들기</span></li>
+        <li><span class="schedule-time">40분</span><span class="schedule-content">시험 질문 3개로 확인하고 고치기</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">짝과 서로의 업무비서 사용해 보기</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">오늘의 AI 활용 판단카드 작성</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>업무비서 예시</strong> · 안내문을 쉬운 말로 바꾸는 비서 / 채용공고를 분석하는 비서 / 고객 문의 답변 비서 / 회의 메모를 회의록으로 정리하는 비서 / 상담 내용을 정해진 항목으로 정리하는 비서</li>
+        <li><strong>사용 기능</strong> · Gemini Gems · 참고 파일 · 미리보기</li>
+        <li><strong>결과물</strong> · 반복해서 사용할 나만의 AI 업무비서 1개</li>
+      </ul>
+    </article>
+
+    <article class="session-card">
+      <p class="session-eyebrow">8회차 · 2시간</p>
+      <h3 class="session-title">내 업무 하나를 끝까지 완성하기</h3>
+      <p class="session-goal">학습 목표 · 8주 동안 배운 것을 이어 붙여 실제 업무 하나를 처음부터 끝까지 완성하고, 수료 후에도 계속 쓸 방법을 정할 수 있다.</p>
+      <ul class="schedule">
+        <li><span class="schedule-time">10분</span><span class="schedule-content">8주 결과물 정리와 프로젝트 주제 정하기</span></li>
+        <li><span class="schedule-time">20분</span><span class="schedule-content">자료 정리부터 최종 문서까지 한 번에 하는 과정 시연</span></li>
+        <li><span class="schedule-time">45분</span><span class="schedule-content">내 업무 프로젝트 완성하기</span></li>
+        <li><span class="schedule-time">25분</span><span class="schedule-content">사실·숫자·개인정보 최종 점검</span></li>
+        <li><span class="schedule-time">15분</span><span class="schedule-content">발표와 서로의 활용법 나누기</span></li>
+        <li><span class="schedule-time">5분</span><span class="schedule-content">판단카드 8장 정리 · 과정 마무리</span></li>
+      </ul>
+      <ul class="session-notes">
+        <li><strong>직무별 최종 프로젝트</strong> · 회의 메모를 회의록·업무목록·후속 이메일로 / 강의 주제를 강의계획서·안내문·발표자료로 / 채용공고를 경력 연결표·자기소개·예상 질문으로 / 상품자료를 소개문·홍보 이미지·고객 답변으로</li>
+        <li><strong>기관 선택형 공동 프로젝트</strong> · 기관과 사전 협의하면 공개 가능한 자료를 활용해 <strong>기관에 필요한 쉬운 안내자료</strong>를 함께 제작할 수 있습니다. 결과물은 기관의 검토와 승인을 거쳐 활용합니다.</li>
+        <li><strong>사용 기능</strong> · ChatGPT 프로젝트·검색·파일 분석 · Gemini Canvas·Gems</li>
+        <li><strong>결과물</strong> · 개인 최종 업무 프로젝트 1건 · AI 업무 활용 포트폴리오</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<section id="outcomes">
+  <p class="section-label">Outcomes</p>
+  <h2>수강생이 가져갈 결과물</h2>
+  <ul class="outcome-list">
+    <li>1회차 — 내 업무 지시문 3개 + 나의 AI 업무실</li>
+    <li>2회차 — 출처가 포함된 비교표 1건</li>
+    <li>3회차 — 사실 확인 3단계 카드</li>
+    <li>4회차 — 공고문 요약표 1건 + 업무 문서 1건</li>
+    <li>5회차 — 데이터 분석표·그래프 + 업무 요약문</li>
+    <li>6회차 — 보고서 또는 발표자료 + 업무용 이미지</li>
+    <li>7회차 — 나만의 AI 업무비서 1개</li>
+    <li>8회차 — 개인 최종 업무 프로젝트 + AI 업무 활용 포트폴리오</li>
+    <li>매 회차 — AI 활용 판단카드 (잘하는 일 · 못하는 일 · 맡기면 안 되는 일 / 수료 시 8장)</li>
+  </ul>
+</section>
+
+<section id="notes">
+  <p class="section-label">Notes</p>
+  <h2>운영 안내</h2>
+  <ul class="note-list">
+    <li><strong>유료 구독이 필요하지 않습니다.</strong> 모든 실습은 ChatGPT와 Gemini의 무료 기능으로 진행하며, 수강생에게 유료 결제를 권하지 않습니다.</li>
+    <li>무료 기능 확인일은 <strong>2026년 9월 6일</strong>입니다. 서비스 정책이 바뀌면 같은 목적을 수행하는 다른 무료 기능으로 대체하며, 학습 목표와 결과물은 그대로 유지됩니다.</li>
+    <li>수강생은 ChatGPT 무료 계정과 개인 Google 계정이 필요합니다. 개강 전 <a href="prep.html">계정 준비 안내문</a>을 기관에 제공해 드립니다.</li>
+    <li>한 주를 빠져도 다음 회차에 그대로 합류할 수 있도록, <strong>각 회차는 하나의 결과물로 완결되게</strong> 설계했습니다.</li>
+    <li>회차별 복습 자료와 접속 링크를 제공하며, 수료 시 기관에 결과물집과 만족도 조사 결과를 함께 전달합니다.</li>
+  </ul>
+</section>
+
+<footer>
+  <span class="footer-name">이보라</span>
+  <span class="footer-contact">광주 · 전남 전 지역 출강 &nbsp;·&nbsp; <a href="mailto:ggamimon1004@gmail.com">ggamimon1004@gmail.com</a></span>
+  <span>© 2026 이보라. AI 리터러시 강사</span>
+</footer>
+
+</body>
+</html>

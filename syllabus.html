@@ -235,6 +235,35 @@
     border-radius: 1px;
     margin-top: 0.4rem;
   }
+
+  /* --- 기초 / 중급 전환 --- */
+
+  .course-switch {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.6rem 0 0;
+    flex-wrap: wrap;
+  }
+
+  .course-switch a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.42rem 0.95rem;
+    transition: color .15s, border-color .15s;
+  }
+
+  .course-switch a:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+  .course-switch a.is-current {
+    color: var(--ink);
+    border-color: var(--accent);
+    font-weight: 500;
+  }
 </style>
 </head>
 <body>
@@ -258,6 +287,10 @@
   <h1 class="page-title">스마트폰으로 배우는 생활 AI</h1>
   <p class="course-meta">4회 · 회당 2시간 · 총 8시간</p>
   <p class="page-desc">ChatGPT 기초부터 사진·안내문 정리, 생활 글쓰기, AI 노래 만들기, 정보 확인까지 중장년 시민이 자신의 스마트폰으로 직접 해보는 4회 실습 중심 정규과정입니다.</p>
+  <div class="course-switch">
+    <a href="syllabus.html" class="is-current">기초 · 4회</a>
+    <a href="syllabus-mid.html">중급 · 8회</a>
+  </div>
 </header>
 
 <section id="audience">
