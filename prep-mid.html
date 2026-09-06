@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중급과정 준비 안내 | 이보라 — AI 리터러시 강사</title>
+<meta name="description" content="「PC로 완성하는 업무 AI」 중급과정 수강생 준비 안내입니다. ChatGPT 계정과 구글 계정만 확인해 오시면 됩니다.">
+<link rel="canonical" href="https://aibora.kr/prep.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="이보라 — AI 리터러시 강사">
+<meta property="og:title" content="수업 오시기 전, 딱 3가지만 준비해 주세요">
+<meta property="og:description" content="첫 시간을 가장 많이 잡아먹는 것이 아이디·비밀번호 찾기입니다. 세 가지만 확인해 오시면 첫날부터 바로 실습을 시작합니다.">
+<meta property="og:url" content="https://aibora.kr/prep.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-header {
+    padding: clamp(2.75rem, 7vw, 4rem) 1.75rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4vw, 2.4rem);
+    line-height: 1.2;
+    margin: 0 0 0.9rem;
+    text-wrap: balance;
+  }
+
+  .page-desc {
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0 0 1.75rem;
+    font-size: 1.04rem;
+  }
+
+  section h2 { max-width: 30ch; }
+
+  .why-box {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+  }
+
+  .why-box .inner {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 1.4rem 1.5rem;
+    color: var(--ink);
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+
+  /* --- 준비 단계 --- */
+
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .step {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    padding: 1.75rem;
+    break-inside: avoid;
+  }
+
+  .step-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .step-num {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-radius: 3px;
+    padding: 0.25rem 0.6rem;
+    line-height: 1;
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.28rem;
+    line-height: 1.35;
+    margin: 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .step-key {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+    line-height: 1;
+  }
+
+  .step ul {
+    margin: 0;
+    padding-left: 1.3rem;
+    color: var(--ink);
+    font-size: 1.02rem;
+    line-height: 1.85;
+  }
+
+  .step ul li { margin-bottom: 0.3rem; }
+  .step ul li:last-child { margin-bottom: 0; }
+
+  .step-note {
+    margin: 1.1rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .step-note strong { color: var(--ink); }
+
+  /* --- 기기별 확인 방법 --- */
+
+  .device-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.1rem 0 0;
+  }
+
+  .device-card {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface-2);
+    padding: 1.15rem 1.25rem;
+  }
+
+  .device-name {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.04rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .device-path {
+    margin: 0;
+    color: var(--ink);
+    font-size: 0.97rem;
+    line-height: 1.8;
+  }
+
+  .device-path em {
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  @media (max-width: 560px) {
+    .device-grid { grid-template-columns: 1fr; }
+  }
+
+  /* --- 확인표 --- */
+
+  .check-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .check-table th,
+  .check-table td {
+    border: 1px solid var(--line);
+    padding: 0.85rem 0.9rem;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .check-table th {
+    background: var(--surface-2);
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+
+  .check-table td { color: var(--ink-soft); height: 3.1rem; }
+
+  .safety {
+    margin: 1.5rem 0 0;
+    padding: 1.15rem 1.3rem;
+    border: 1.5px solid var(--danger);
+    border-radius: 6px;
+    color: var(--ink);
+    font-size: 0.99rem;
+    line-height: 1.8;
+    break-inside: avoid;
+  }
+
+  .safety strong { color: var(--danger); }
+
+  /* --- 담당자 안내 --- */
+
+  .staff-box {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    padding: 1.75rem;
+  }
+
+  .staff-box h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 0.9rem;
+  }
+
+  .staff-box ol {
+    margin: 0 0 1.25rem;
+    padding-left: 1.3rem;
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 1rem;
+  }
+
+  .staff-link {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.75rem 0.9rem;
+    display: block;
+    color: var(--ink);
+    word-break: break-all;
+  }
+
+  .print-hint {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin: 1.1rem 0 0;
+  }
+
+  /* --- 인쇄용 --- */
+
+  @media print {
+    @page { size: A4; margin: 14mm 13mm; }
+
+    .site-nav, .no-print, footer { display: none !important; }
+
+    body {
+      background: #fff;
+      color: #000;
+      font-size: 10.5pt;
+      line-height: 1.55;
+    }
+
+    section, .page-header, .why-box {
+      max-width: none;
+      padding: 0 0 0.6rem;
+      margin: 0;
+      border-top: none;
+    }
+
+    .page-header { padding-bottom: 0.4rem; }
+    .page-title { font-size: 17pt; margin-bottom: 0.35rem; }
+    .page-desc { font-size: 10pt; margin-bottom: 0.6rem; max-width: none; }
+    .section-label { display: none; }
+    h2 { font-size: 12.5pt; margin: 0.7rem 0 0.5rem; max-width: none; }
+
+    .why-box .inner { padding: 0.6rem 0.8rem; font-size: 10pt; line-height: 1.5; }
+    .step { padding: 0.75rem 0.9rem; break-inside: avoid; }
+    .step-list { gap: 0.6rem; }
+    .step-title { font-size: 11.5pt; }
+    .step ul { font-size: 10pt; line-height: 1.55; }
+    .step-note { font-size: 9.5pt; margin-top: 0.55rem; padding-top: 0.5rem; }
+    .device-card { padding: 0.6rem 0.7rem; }
+    .device-path { font-size: 9.5pt; line-height: 1.5; }
+    .check-table { font-size: 9.5pt; }
+    .check-table td { height: 2.4rem; }
+    .safety { padding: 0.6rem 0.8rem; font-size: 9.5pt; line-height: 1.5; }
+    .staff-box { padding: 0.75rem 0.9rem; }
+    .staff-box ol { font-size: 9.5pt; line-height: 1.55; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">이보라</a>
+    <div class="links">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#topics">강의 주제</a>
+      <a href="syllabus.html">강의계획서</a>
+      <a href="index.html#operation">출강 조건</a>
+      <a href="index.html#blog">블로그</a>
+      <a href="index.html#consult">출강 문의</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">중급과정 수강생 준비 안내</p>
+  <h1 class="page-title">수업 오시기 전,<br>딱 3가지만 준비해 주세요</h1>
+  <p class="page-desc">「PC로 완성하는 업무 AI」 중급과정에 오시는 분들을 위한 안내입니다. 기관에서 인쇄해 나눠주시거나, 이 주소를 문자로 보내 주셔도 됩니다.</p>
+  <div class="cta-row no-print">
+    <button type="button" class="btn btn-primary" onclick="window.print()">인쇄하기 · PDF로 저장</button>
+    <a class="btn btn-ghost" href="syllabus-mid.html">중급과정 강의계획서 보기</a>
+  </div>
+</header>
+
+<div class="why-box">
+  <div class="inner">
+    이 수업은 <strong>기관의 컴퓨터로 진행</strong>합니다. 따로 준비하실 기계는 없습니다.<br>
+    다만 <strong>두 곳에 들어가는 아이디와 비밀번호</strong>만 확인해 오시면, 첫날부터 바로 실습을 시작할 수 있습니다.
+  </div>
+</div>
+
+<section id="steps">
+  <p class="section-label">Checklist</p>
+  <h2>준비하실 세 가지</h2>
+
+  <ul class="step-list">
+
+    <li class="step">
+      <div class="step-head">
+        <span class="step-num">준비 1</span>
+        <h3 class="step-title">챗지피티 아이디를 확인해 오세요</h3>
+        <span class="step-key">가장 중요</span>
+      </div>
+      <ul>
+        <li>이미 써보신 적이 있다면, 그때 쓰신 <strong>이메일 주소와 비밀번호</strong>입니다.</li>
+        <li>구글 아이디로 들어가셨다면 <strong>구글 아이디 하나만</strong> 있으면 됩니다.</li>
+        <li>아직 없으시면 만들지 않으셔도 됩니다. 첫 시간에 함께 만들어 드립니다.</li>
+      </ul>
+      <p class="step-note">아이디와 비밀번호를 넣고 들어가는 것은, <strong>이름표를 달고 문으로 들어가는 것</strong>과 같습니다. 이름표가 없으면 문 앞에서 멈추게 됩니다.</p>
+    </li>
+
+    <li class="step">
+      <div class="step-head">
+        <span class="step-num">준비 2</span>
+        <h3 class="step-title">구글 아이디를 확인해 오세요</h3>
+      </div>
+      <ul>
+        <li><em>@gmail.com</em> 으로 끝나는 주소입니다.</li>
+        <li>안드로이드 휴대폰을 쓰시면 이미 갖고 계십니다.</li>
+        <li>6회차부터 구글에서 만드는 그림 기능을 함께 씁니다.</li>
+      </ul>
+
+      <div class="device-grid">
+        <div class="device-card">
+          <span class="device-name">안드로이드 (삼성 · LG)</span>
+          <p class="device-path"><em>설정</em>을 누르세요<br>→ 맨 위에 있는 <em>내 이름</em>을 누르세요<br>→ @gmail.com 주소가 보입니다</p>
+        </div>
+        <div class="device-card">
+          <span class="device-name">아이폰 · 컴퓨터</span>
+          <p class="device-path">평소에 쓰시던 <em>지메일</em> 주소가 있으면 됩니다<br>→ 없으시면 첫 시간에 함께 만듭니다</p>
+        </div>
+      </div>
+
+      <p class="step-note"><strong>주소는 이렇게 찾을 수 있지만, 비밀번호는 화면에 나오지 않습니다.</strong> 기억이 나지 않으시면 수업 오시기 전에 미리 확인해 두세요. 그것만으로 첫 시간이 훨씬 편해집니다.</p>
+    </li>
+
+    <li class="step">
+      <div class="step-head">
+        <span class="step-num">준비 3</span>
+        <h3 class="step-title">수업에서 다뤄 볼 내 일 하나를 생각해 오세요</h3>
+      </div>
+      <ul>
+        <li>매주 반복해서 하는 일이면 무엇이든 좋습니다.</li>
+        <li>안내문 만들기, 이메일 쓰기, 회의 내용 정리, 고객 문의 답변, 명단이나 회비 정리 같은 것입니다.</li>
+        <li>딱 떠오르지 않으셔도 됩니다. 첫 시간에 함께 찾아 드립니다.</li>
+      </ul>
+      <p class="step-note"><strong>자료를 가져오실 필요는 없습니다.</strong> 실습용 예제는 강사가 모두 준비해 갑니다. 혹시 본인 자료를 쓰고 싶으시면 <strong>이름·연락처·주민번호 같은 개인정보를 지운 뒤</strong> 가져와 주세요.</p>
+    </li>
+
+  </ul>
+</section>
+
+<section id="check">
+  <p class="section-label">Check</p>
+  <h2>오시기 전에 한 번만 확인해 주세요</h2>
+  <table class="check-table">
+    <thead>
+      <tr>
+        <th style="width:58%">확인할 것</th>
+        <th>됐으면 ○ 표시</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>챗지피티 아이디(이메일 주소)를 찾아 두었다</td><td></td></tr>
+      <tr><td>챗지피티 비밀번호를 기억하고 있다</td><td></td></tr>
+      <tr><td>구글 아이디(@gmail.com)를 찾아 두었다</td><td></td></tr>
+      <tr><td>수업에서 다뤄 볼 내 일 하나를 생각해 두었다</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="safety">
+    <strong>비밀번호는 종이에 적지 마세요.</strong> 적어 둔 종이를 잃어버리면 그것이 더 큰 위험이 됩니다. <strong>기억하고 계신지만</strong> 확인해 오시면 충분합니다. 수업 시간에 강사가 옆에서 함께 확인해 드립니다.<br><br>
+    <strong>수업 중에는 주민등록번호, 계좌번호, 다른 사람의 개인정보를 입력하지 않습니다.</strong>
+  </div>
+</section>
+
+<section id="staff">
+  <p class="section-label">For Staff</p>
+  <h2>기관 담당자께 드리는 안내</h2>
+  <div class="staff-box">
+    <h3>이렇게 활용하시면 됩니다</h3>
+    <ol>
+      <li><strong>수업 1주일 전</strong>에 이 안내문을 수강생에게 전달해 주세요.</li>
+      <li>이 화면 위쪽의 <strong>「인쇄하기」</strong> 버튼을 누르면 A4 용지로 바로 인쇄됩니다.</li>
+      <li>인쇄가 어려우시면 아래 주소를 문자로 보내 주셔도 됩니다.</li>
+    </ol>
+
+    <h3 style="margin-top:1.5rem;">수업 전 실습실 확인 부탁드립니다</h3>
+    <ol>
+      <li>실습실 <strong>컴퓨터 한 대에서</strong> chatgpt.com 과 gemini.google.com 두 곳이 열리는지 확인해 주세요.</li>
+      <li>기관 보안 설정으로 <strong>차단되어 있는 경우가 있습니다.</strong> 미리 확인해 주시면 수업 당일 문제가 없습니다.</li>
+      <li>수강생이 <strong>본인 계정으로 로그인</strong>할 수 있어야 합니다.</li>
+      <li>파일을 올리고 내려받는 것이 가능한지 확인해 주세요.</li>
+      <li>크롬 브라우저를 권장합니다.</li>
+    </ol>
+
+    <span class="staff-link">https://aibora.kr/prep-mid.html</span>
+    <p class="print-hint">준비가 어려운 수강생이 계시면 미리 알려 주세요. 수업 시작 전에 개별로 도와드립니다.</p>
+    <div class="cta-row no-print" style="margin-top:1.25rem;">
+      <a class="btn btn-primary" href="index.html#consult">출강 문의하기</a>
+      <a class="btn btn-ghost" href="syllabus-mid.html">중급과정 강의계획서</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">이보라</span>
+  <span class="footer-contact">광주 · 전남 전 지역 출강 &nbsp;·&nbsp; <a href="mailto:ggamimon1004@gmail.com">ggamimon1004@gmail.com</a></span>
+  <span>© 2026 이보라. AI 리터러시 강사</span>
+</footer>
+
+</body>
+</html>
