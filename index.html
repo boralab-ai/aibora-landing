@@ -854,9 +854,9 @@
   </ul>
   <p class="topics-note">진행 형태 · 2시간 단회 특강 / 4회 8시간 기초 정규과정 / <strong>8회 16시간 업무 중급과정</strong> — 회차와 시간은 기관 일정에 맞춰 조정해 드립니다.</p>
   <div class="cta-row" style="margin-top: 1.25rem;">
-    <a class="btn btn-primary" href="syllabus.html">4회 기초과정 강의계획서 보기</a>
-    <a class="btn btn-primary" href="syllabus-mid.html">8회 중급과정 강의계획서 보기</a>
-    <a class="btn btn-ghost" href="programs.html">전체 프로그램 보기</a>
+    <a class="btn btn-primary" href="programs.html">전체 강의 프로그램 보기</a>
+    <a class="btn btn-ghost" href="syllabus.html">기초 4회 강의계획서</a>
+    <a class="btn btn-ghost" href="syllabus-mid.html">중급 8회 강의계획서</a>
   </div>
 </section>
 
@@ -871,7 +871,7 @@
     </li>
     <li>
       <span class="ops-label">진행 정원</span>
-      <span class="ops-value"><strong>기초과정 · 특강 — 권장 12명</strong><br>실습 위주 수업이라 한 분씩 화면을 봐 드리고 결과물을 완성할 수 있는 인원을 권장합니다. 13명 이상은 수강생의 디지털 활용 수준과 기관 보조인력 배치 여부에 따라 협의하며, 인원이 많은 경우 2회 분반 운영을 제안드립니다.<br><br><strong>업무 중급과정 — 10명</strong><br>개인별 업무 결과물을 완성하는 실습과정이라, 원활한 개별 피드백을 위해 소수로 운영합니다.</span>
+      <span class="ops-value"><strong>기초과정 · 특강 — 권장 12명</strong><br>실습 위주 수업으로 한 분씩 화면을 확인하며 진행합니다. <strong>기관의 모집 규모와 교육환경에 따라 협의</strong>하며, 원활한 실습을 위해 인원이 많은 경우 <strong>분반 운영</strong>을 제안드립니다.<br><br><strong>업무 중급과정 — 10명</strong><br>개인별 업무 결과물을 완성하는 실습과정이라, 원활한 개별 피드백을 위해 소수로 운영합니다.</span>
     </li>
     <li>
       <span class="ops-label">필요 환경</span>
@@ -963,7 +963,7 @@
     </div>
 
     <fieldset class="c-field">
-      <legend class="c-label">교육 대상 <span class="req">*</span></legend>
+      <legend class="c-label">교육 대상의 주요 연령대 <span class="req">*</span></legend>
       <div class="choice-grid choice-grid-4">
         <label class="choice-card"><input type="radio" name="audience" value="50대" required><span>50대</span></label>
         <label class="choice-card"><input type="radio" name="audience" value="60대"><span>60대</span></label>
@@ -1038,7 +1038,7 @@
         <input type="checkbox" id="c-agree" name="agree" required>
         <span>개인정보 수집·이용에 동의합니다 <span class="req">*</span></span>
       </label>
-      <p class="c-consent-note">수집 항목은 기관명·담당자 성함·이메일·연락처와 문의 내용이며, 출강 상담 회신 목적으로만 사용합니다. 작성하신 내용은 폼 전송 서비스(Formspree)를 거쳐 <strong>ggamimon1004@gmail.com</strong> 으로 전달되며, 상담 회신 후 삭제합니다. 동의를 원하지 않으시면 아래 메일 주소로 직접 연락해 주셔도 됩니다.</p>
+      <p class="c-consent-note">수집 항목은 기관명, 담당자 성함, 이메일, 연락처, 교육 대상과 인원, 관심 과정, 희망 형태와 일정, 교육환경(PC 실습실), 추가 문의 내용이며, 출강 상담 회신 목적으로만 사용합니다. 작성하신 내용은 폼 전송 서비스(Formspree)를 거쳐 <strong>ggamimon1004@gmail.com</strong> 으로 전달되며, 상담 회신 후 삭제합니다. 동의를 원하지 않으시면 아래 메일 주소로 직접 연락해 주셔도 됩니다.</p>
     </div>
 
     <button type="submit" class="btn btn-primary btn-consult-submit">출강 상담 신청하기</button>
@@ -1109,10 +1109,11 @@
       '담당자 성함': (fd.get('name') || '').trim(),
       '회신 이메일': (fd.get('email') || '').trim(),
       '연락처': (fd.get('tel') || '').trim() || '미기재',
-      '교육 대상': fd.get('audience') || '',
+      '주요 연령대': fd.get('audience') || '',
       '예상 인원': fd.get('size') || '',
       '관심 강의': courses.length ? courses.join(', ') : '선택 없음',
       '희망 형태': fd.get('format') || '',
+      'PC 실습실': fd.get('pcroom') || '미선택',
       '희망 일정': fd.get('dateFlexible') ? '협의 가능' : (fd.get('date') || '미기재'),
       '추가 문의': (fd.get('note') || '').trim() || '없음'
     };

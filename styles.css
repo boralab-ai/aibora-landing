@@ -110,6 +110,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--ink);
 }
 
+.site-nav .links a {
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.12s ease;
+}
+
+.site-nav .links a:active {
+  color: var(--ink);
+  transform: translateY(1px);
+}
+
+.site-nav .links a[aria-current="page"] {
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+
 /* 좁은 화면에서는 메뉴를 아래 줄로 접어 모든 항목이 보이게 합니다.
    (가로 스크롤은 항목이 화면 밖에 숨겨져 눌러야 할 메뉴를 못 찾는 문제가 있었습니다) */
 @media (max-width: 640px) {
@@ -220,36 +234,88 @@ h1.name {
   border: 1px solid transparent;
   background: none;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  /* 손가락으로 길게 눌렀을 때 회색 반투명 사각형이 뜨는 것을 막습니다 */
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+              background 0.12s ease, border-color 0.12s ease;
 }
 
 .btn-primary {
   background: var(--ink);
   color: var(--bg);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
 }
-.btn-primary:hover { transform: translateY(-1px); }
 
 .btn-ghost {
   border-color: var(--line);
   color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
-.btn-ghost:hover { border-color: var(--ink-soft); }
 
 .btn-danger {
   border-color: var(--line);
   color: var(--danger);
+  background: var(--surface);
 }
-.btn-danger:hover { border-color: var(--danger); }
+
+/* --- 마우스를 올렸을 때 (마우스가 있는 기기에서만) --- */
+
+@media (hover: hover) {
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(28, 34, 51, 0.28);
+  }
+
+  .btn-ghost:hover {
+    transform: translateY(-2px);
+    border-color: var(--ink);
+    box-shadow: 0 5px 14px rgba(28, 34, 51, 0.16);
+  }
+
+  .btn-danger:hover {
+    transform: translateY(-2px);
+    border-color: var(--danger);
+    box-shadow: 0 5px 14px rgba(179, 67, 43, 0.18);
+  }
+}
+
+/* --- 누르는 순간 (스마트폰에서도 그대로 작동합니다) --- */
+
+.btn:active { transition-duration: 0.04s; }
+
+.btn-primary:active {
+  transform: translateY(1px);
+  background: #12172380;
+  background: color-mix(in srgb, var(--ink) 82%, #000);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.42);
+}
+
+.btn-ghost:active,
+.btn-danger:active {
+  transform: translateY(1px);
+  background: var(--surface-2);
+  border-color: var(--ink-soft);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.16);
+}
 
 .btn[disabled] {
   opacity: 0.45;
   cursor: not-allowed;
   transform: none !important;
+  box-shadow: none !important;
+}
+
+/* 키보드 탭 이동 시 노란 테두리를 더 두껍게 */
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }
-  .btn-primary:hover { transform: none; }
+  .btn-primary:hover, .btn-ghost:hover, .btn-danger:hover { transform: none; }
+  .btn-primary:active, .btn-ghost:active, .btn-danger:active { transform: none; }
 }
 
 section {
