@@ -110,25 +110,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--ink);
 }
 
-/* 좁은 화면에서 메뉴가 잘리지 않도록 가로 스크롤 허용 */
-@media (max-width: 560px) {
+/* 좁은 화면에서는 메뉴를 아래 줄로 접어 모든 항목이 보이게 합니다.
+   (가로 스크롤은 항목이 화면 밖에 숨겨져 눌러야 할 메뉴를 못 찾는 문제가 있었습니다) */
+@media (max-width: 640px) {
   .site-nav .wrap {
     padding-left: 1.1rem;
     padding-right: 1.1rem;
+    flex-wrap: wrap;
+    row-gap: 0.1rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
   }
+
+  .site-nav .brand { font-size: 1.05rem; }
 
   .site-nav .links {
-    gap: 1rem;
-    font-size: 0.88rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    margin-left: 0.9rem;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0 0.95rem;
+    font-size: 0.86rem;
+    margin-left: 0;
   }
 
-  .site-nav .links::-webkit-scrollbar { display: none; }
-
-  .site-nav .links a { white-space: nowrap; }
+  .site-nav .links a {
+    white-space: nowrap;
+    min-height: 38px;
+  }
 }
 
 /* 손가락으로 누르기 좋은 최소 터치 영역 */
