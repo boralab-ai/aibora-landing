@@ -74,6 +74,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .site-nav {
   border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
 }
 
 .site-nav .wrap {
