@@ -156,6 +156,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   }
 }
 
+/* 메뉴가 5개라 작은 휴대폰(400px 이하)에서도 한 줄에 들어가도록 간격만 줄입니다. */
+@media (max-width: 400px) {
+  .site-nav .links {
+    gap: 0 0.62rem;
+    font-size: 0.84rem;
+  }
+}
+
 /* 손가락으로 누르기 좋은 최소 터치 영역 */
 .site-nav .links a,
 .btn {
