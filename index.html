@@ -313,8 +313,65 @@
   .choice-card input {
     position: absolute;
     opacity: 0;
-    width: 0;
-    height: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  /* --- 입력 누락 안내 (2026.9 수정) ---
+     선택 버튼·동의 체크박스는 화면에 보이지 않는 입력칸이라,
+     브라우저 기본 경고 말풍선이 뜨지 않았습니다. 직접 빨간 안내를 띄웁니다. */
+  #consult,
+  #consult .c-field,
+  #consult-success,
+  #form-alert {
+    scroll-margin-top: 7rem;
+  }
+
+  .c-error {
+    display: none;
+    margin: 0;
+    color: var(--danger);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .c-field.is-invalid .c-error { display: block; }
+
+  .c-field.is-invalid .c-input,
+  .c-field.is-invalid .choice-card {
+    border-color: var(--danger);
+    border-width: 2px;
+  }
+
+  .form-alert {
+    margin: 0;
+    padding: 1rem 1.15rem;
+    border: 2px solid var(--danger);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .form-alert strong { color: var(--danger); }
+
+  .form-alert-detail {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+
+  .c-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   .choice-card:hover { border-color: var(--ink-soft); }
@@ -747,11 +804,11 @@
   <p class="subtagline">신중년이 ChatGPT와 스마트폰 AI를 일상과 업무에서 바로 쓰도록, 화면을 함께 보며 한 단계씩 안내합니다.</p>
   <p class="hero-region">광주 · 전남 전 지역 출강</p>
   <ul class="hero-facts">
-    <li><strong>2026년</strong> AI 강사 양성과정 1개 수료 · 1개 수료 예정(9월)</li>
+    <li><strong>2026년</strong> AI 강사 양성과정 2개 수료</li>
     <li><strong>수업용 실습 앱</strong> 직접 제작</li>
     <li><strong>신중년 AI 블로그</strong> 연재 중</li>
   </ul>
-  <p class="hero-proof">교재를 사서 쓰지 않습니다. <strong>기관의 대상과 수준에 맞춘 실습 자료를 직접 만들어</strong> 수업에 사용합니다.</p>
+  <p class="hero-proof"><strong>기관의 대상과 수준에 맞춘 실습 자료를 직접 만들어</strong> 수업에 사용합니다.</p>
   <div class="cta-row">
     <a class="btn btn-primary" href="#consult">출강 문의하기</a>
     <a class="btn btn-ghost" href="programs.html">3개 강의과정 보기</a>
@@ -787,11 +844,11 @@
 
   <!-- 기관 담당자가 품의서에 그대로 옮겨 적는 줄입니다. 수료 상태가 바뀌면 이 부분만 고치세요. -->
   <div class="cred-line">
-    <span class="cred-line-label">2026년 이수 · 자격</span>
+    <span class="cred-line-label">이수 · 자격</span>
     <ul>
       <li><strong>국립순천대학교 「생성형 AI 전문강사 양성과정」 수료</strong> <span class="cred-when">2026년 8월 · 60시간 대면</span></li>
-      <!-- ▼ 9월 13일 수료식이 끝나면 '수료 예정'에서 '예정' 두 글자만 지우세요 ▼ -->
-      <li><strong>한국지능정보사회진흥원(NIA) 「2026 AI디지털튜터 양성과정」 강사형 수료 예정</strong> <span class="cred-when">2026년 9월</span></li>
+      <li><strong>한국지능정보사회진흥원(NIA) 「2026 AI디지털튜터 양성과정」 강사형 수료</strong> <span class="cred-when">2026년 9월</span></li>
+      <li><strong>사회복지사 · 직업상담사</strong> <span class="cred-when">자격 보유</span></li>
     </ul>
   </div>
 
@@ -846,7 +903,7 @@
     </li>
     <li>
       <span class="ops-label">진행 정원</span>
-      <span class="ops-value"><strong>기초과정 · 특강 — 권장 12명</strong><br>실습 위주 수업으로 한 분씩 화면을 확인하며 진행합니다. <strong>기관의 모집 규모와 교육환경에 따라 협의</strong>하며, 원활한 실습을 위해 인원이 많은 경우 <strong>분반 운영</strong>을 제안드립니다.<br><br><strong>업무 중급과정 — 권장 10명</strong><br>회차별로 자신의 업무 결과물을 직접 만들고 강사가 수강생의 화면을 확인하는 실습과정입니다. 원활한 개별 피드백을 위해 소수정예로 운영합니다.</span>
+      <span class="ops-value"><strong>기초과정 · 특강 — 권장 12명</strong><br>실습 위주 수업으로 한 분씩 화면을 확인하며 진행합니다. <strong>보조강사 1명을 배치하면 최대 20명</strong>까지 진행하며, 20명을 넘으면 <strong>분반 운영</strong>을 권장드립니다.<br><br><strong>업무 중급과정 — 권장 10명</strong><br>회차별로 자신의 업무 결과물을 직접 만들고 강사가 수강생의 화면을 확인하는 실습과정입니다. 원활한 개별 피드백을 위해 소수정예로 운영합니다. <strong>보조강사 1명을 배치하면 최대 16명</strong>까지 진행하며, 16명을 넘으면 <strong>분반 운영</strong>을 권장드립니다.</span>
     </li>
     <li>
       <span class="ops-label">필요 환경</span>
@@ -879,7 +936,7 @@
 <section id="materials">
   <p class="section-label">Materials</p>
   <h2>강의자료 · 실습</h2>
-  <p class="materials-desc">시중 교재를 쓰지 않고, 수업에 필요한 실습 자료를 직접 만들어 사용합니다. 기관 대상·수준에 맞춘 맞춤 실습 자료도 제작해 드립니다.</p>
+  <p class="materials-desc">수업에 필요한 실습 자료를 직접 만들어 사용합니다. 기관 대상·수준에 맞춘 맞춤 실습 자료도 제작해 드립니다.</p>
   <div class="cta-row" style="margin-bottom: 1.75rem;">
     <a class="btn btn-ghost" href="programs.html">대표 강의 프로그램 보기</a>
   </div>
@@ -916,20 +973,23 @@
   <h2>AI 강의 상담 · 출강 문의</h2>
   <p class="consult-desc">교육 대상과 희망 내용을 간단히 알려주시면 기관 상황에 맞는 강의를 함께 구성해드립니다.</p>
 
-  <form class="consult-form" id="consult-form">
-    <div class="c-field">
+  <form class="consult-form" id="consult-form" novalidate>
+    <div class="c-field" data-check="org">
       <label for="c-org" class="c-label">기관명 <span class="req">*</span></label>
       <input type="text" id="c-org" name="org" class="c-input" placeholder="예: OO평생학습관" required>
+      <p class="c-error">기관명을 적어 주세요.</p>
     </div>
 
-    <div class="c-field">
+    <div class="c-field" data-check="name">
       <label for="c-name" class="c-label">담당자 성함 <span class="req">*</span></label>
       <input type="text" id="c-name" name="name" class="c-input" placeholder="예: 김OO 주무관" required>
+      <p class="c-error">담당자 성함을 적어 주세요.</p>
     </div>
 
-    <div class="c-field">
+    <div class="c-field" data-check="email">
       <label for="c-email" class="c-label">회신받을 이메일 <span class="req">*</span></label>
       <input type="email" id="c-email" name="email" class="c-input" placeholder="예: name@example.com" required>
+      <p class="c-error" id="c-email-error">회신받을 이메일 주소를 적어 주세요.</p>
     </div>
 
     <div class="c-field">
@@ -937,7 +997,7 @@
       <input type="tel" id="c-tel" name="tel" class="c-input" placeholder="예: 061-000-0000">
     </div>
 
-    <fieldset class="c-field">
+    <fieldset class="c-field" data-check="audience">
       <legend class="c-label">교육 대상의 주요 연령대 <span class="req">*</span></legend>
       <div class="choice-grid choice-grid-4">
         <label class="choice-card"><input type="radio" name="audience" value="50대" required><span>50대</span></label>
@@ -945,9 +1005,10 @@
         <label class="choice-card"><input type="radio" name="audience" value="신중년 혼합"><span>신중년 혼합</span></label>
         <label class="choice-card"><input type="radio" name="audience" value="기타"><span>기타</span></label>
       </div>
+      <p class="c-error">교육 대상의 주요 연령대를 하나 골라 주세요.</p>
     </fieldset>
 
-    <fieldset class="c-field">
+    <fieldset class="c-field" data-check="size">
       <legend class="c-label">예상 참여 인원 <span class="req">*</span></legend>
       <div class="choice-grid choice-grid-4">
         <label class="choice-card"><input type="radio" name="size" value="10명 이하" required><span>10명 이하</span></label>
@@ -955,9 +1016,10 @@
         <label class="choice-card"><input type="radio" name="size" value="20~30명"><span>20~30명</span></label>
         <label class="choice-card"><input type="radio" name="size" value="30명 이상"><span>30명 이상</span></label>
       </div>
+      <p class="c-error">예상 참여 인원을 하나 골라 주세요.</p>
     </fieldset>
 
-    <fieldset class="c-field">
+    <fieldset class="c-field" data-check="course">
       <legend class="c-label">문의 과정 <span class="req">*</span></legend>
       <div class="choice-grid choice-grid-2">
         <label class="choice-card"><input type="radio" name="course" value="2시간 특강" required><span>2시간 특강</span></label>
@@ -966,6 +1028,7 @@
         <label class="choice-card"><input type="radio" name="course" value="기관 맞춤 강의"><span>기관 맞춤 강의</span></label>
         <label class="choice-card"><input type="radio" name="course" value="아직 미정"><span>아직 미정</span></label>
       </div>
+      <p class="c-error">문의하실 과정을 하나 골라 주세요. 정하지 않으셨으면 「아직 미정」을 누르세요.</p>
     </fieldset>
 
     <fieldset class="c-field" id="c-pcroom-field" hidden>
@@ -988,13 +1051,22 @@
       <textarea id="c-note" name="note" class="c-input c-textarea" placeholder="궁금한 점이나 요청 사항을 자유롭게 남겨주세요."></textarea>
     </div>
 
-    <div class="c-field c-consent">
+    <!-- 스팸 로봇 차단용 칸입니다. 사람에게는 보이지 않습니다. 지우지 마세요. -->
+    <div class="c-honeypot" aria-hidden="true">
+      <label for="c-gotcha">이 칸은 비워 두세요</label>
+      <input type="text" id="c-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="c-field c-consent" data-check="agree">
       <label class="choice-card choice-card-inline">
         <input type="checkbox" id="c-agree" name="agree" required>
         <span>개인정보 수집·이용에 동의합니다 <span class="req">*</span></span>
       </label>
+      <p class="c-error">개인정보 수집·이용 동의 칸을 눌러 주세요. 동의하셔야 접수됩니다.</p>
       <p class="c-consent-note">수집 항목은 기관명, 담당자 성함, 이메일, 연락처, 교육 대상과 인원, 문의 과정과 일정, 교육환경(PC 실습실), 추가 문의 내용이며, 출강 상담 회신 목적으로만 사용합니다. 작성하신 내용은 폼 전송 서비스(Formspree)를 거쳐 <strong>ggamimon1004@gmail.com</strong> 으로 전달되며, 상담 회신 후 삭제합니다. 동의를 원하지 않으시면 아래 메일 주소로 직접 연락해 주셔도 됩니다.</p>
     </div>
+
+    <div class="form-alert" id="form-alert" role="alert" tabindex="-1" hidden></div>
 
     <button type="submit" class="btn btn-primary btn-consult-submit">출강 상담 신청하기</button>
     <p class="c-submit-note">버튼을 누르면 <strong>바로 접수됩니다.</strong> 메일 앱을 여실 필요 없습니다. 확인 후 1~2일 내에 회신드립니다. 급하시면 아래 메일로 바로 연락 주셔도 됩니다.</p>
@@ -1048,6 +1120,83 @@
   var submitBtn = form.querySelector('button[type="submit"]');
   var pcroomField = document.getElementById('c-pcroom-field');
   var courseRadios = form.querySelectorAll('input[name="course"]');
+  var formAlert = document.getElementById('form-alert');
+  var emailError = document.getElementById('c-email-error');
+  var SUBMIT_LABEL = '출강 상담 신청하기';
+  var TIMEOUT_MS = 20000; // 20초 안에 응답이 없으면 다른 방법을 안내합니다.
+
+  /* ─────────────────────────────────────────────────────────────
+     입력 확인 (2026.9 수정)
+     선택 버튼과 동의 칸은 눈에 보이지 않는 입력칸이라 브라우저 기본 경고가
+     보이지 않았습니다. 그래서 버튼을 눌러도 "아무 반응이 없는 것처럼" 보였습니다.
+     이제는 빠진 항목을 빨간 글씨로 직접 알려 드립니다.
+     ───────────────────────────────────────────────────────────── */
+  var CHECKS = [
+    { key: 'org',      label: '기관명' },
+    { key: 'name',     label: '담당자 성함' },
+    { key: 'email',    label: '회신받을 이메일' },
+    { key: 'audience', label: '교육 대상 연령대' },
+    { key: 'size',     label: '예상 참여 인원' },
+    { key: 'course',   label: '문의 과정' },
+    { key: 'agree',    label: '개인정보 수집·이용 동의' }
+  ];
+
+  function fieldOf(key) { return form.querySelector('[data-check="' + key + '"]'); }
+  function textValue(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  function checkOne(key) {
+    switch (key) {
+      case 'org':      return textValue('c-org') !== '';
+      case 'name':     return textValue('c-name') !== '';
+      case 'email':
+        var v = textValue('c-email');
+        emailError.textContent = v === ''
+          ? '회신받을 이메일 주소를 적어 주세요.'
+          : '이메일 주소 형식을 확인해 주세요. (예: name@example.com)';
+        return isEmail(v);
+      case 'audience':
+      case 'size':
+      case 'course':   return !!form.querySelector('input[name="' + key + '"]:checked');
+      case 'agree':    return document.getElementById('c-agree').checked;
+    }
+    return true;
+  }
+
+  function hideAlert() { formAlert.hidden = true; formAlert.innerHTML = ''; }
+
+  function showAlert(html) {
+    formAlert.innerHTML = html;
+    formAlert.hidden = false;
+  }
+
+  function validate() {
+    var missing = [];
+    for (var i = 0; i < CHECKS.length; i++) {
+      var ok = checkOne(CHECKS[i].key);
+      var field = fieldOf(CHECKS[i].key);
+      if (field) field.classList.toggle('is-invalid', !ok);
+      if (!ok) missing.push(CHECKS[i]);
+    }
+    return missing;
+  }
+
+  // 고치는 즉시 빨간 표시를 지웁니다.
+  form.addEventListener('input', clearFixed);
+  form.addEventListener('change', clearFixed);
+  function clearFixed(e) {
+    var field = e.target.closest('[data-check]');
+    if (field && field.classList.contains('is-invalid') && checkOne(field.getAttribute('data-check'))) {
+      field.classList.remove('is-invalid');
+      if (!form.querySelector('.is-invalid')) hideAlert();
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
 
   document.getElementById('consult-email').textContent = CONTACT_EMAIL;
 
@@ -1114,54 +1263,99 @@
       '&body=' + encodeURIComponent(toText(data));
   }
 
-  function showSuccess(sent, data) {
+  // mode: 'sent'(접수 완료) / 'failed'(전송 실패) / 'mailto'(메일 앱 방식)
+  function showSuccess(mode, data, detail) {
     form.hidden = true;
     success.hidden = false;
-    if (sent) {
-      successTitle.textContent = '문의해 주셔서 감사합니다.';
-      successDesc.textContent = '남겨주신 내용을 확인한 뒤 빠른 시일 내에 연락드리겠습니다.';
+    if (mode === 'sent') {
+      successTitle.textContent = '접수되었습니다. 문의해 주셔서 감사합니다.';
+      successDesc.textContent = '남겨주신 내용을 확인한 뒤 1~2일 안에 회신드리겠습니다.';
       manual.hidden = true;
     } else {
-      successTitle.textContent = '아직 접수되지 않았습니다 — 한 단계가 남았습니다.';
-      successDesc.textContent = '이 사이트는 메일을 대신 보내지 않습니다. 아래 방법 중 하나로 보내주셔야 접수됩니다.';
+      successTitle.textContent = mode === 'failed'
+        ? '전송 중 문제가 생겨 아직 접수되지 않았습니다.'
+        : '아직 접수되지 않았습니다 — 한 단계가 남았습니다.';
+      successDesc.textContent = mode === 'failed'
+        ? '번거로우시겠지만 아래 방법 중 하나로 보내 주시면 바로 접수됩니다.' + (detail ? ' (오류 내용: ' + detail + ')' : '')
+        : '이 사이트는 메일을 대신 보내지 않습니다. 아래 방법 중 하나로 보내주셔야 접수됩니다.';
       summaryBox.value = toText(data);
       mailAgain.href = mailtoUrl(data);
       gmailBtn.href = gmailUrl(data);
       manual.hidden = false;
     }
-    success.focus();
+    success.scrollIntoView({ block: 'start' });
+    success.focus({ preventScroll: true });
   }
+
+  function formspreeError(res) {
+    return res.json().then(function (j) {
+      if (j && j.errors && j.errors.length) {
+        return j.errors.map(function (x) { return x.message; }).join(', ');
+      }
+      return (j && j.error) || ('응답 코드 ' + res.status);
+    }, function () { return '응답 코드 ' + res.status; });
+  }
+
+  var sending = false;
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (!form.reportValidity()) return;
+    if (sending) return;
+
+    var missing = validate();
+    if (missing.length) {
+      var names = missing.map(function (m) { return escapeHtml(m.label); }).join(', ');
+      showAlert('<strong>아직 접수되지 않았습니다.</strong> 빠진 항목이 있습니다: ' + names +
+        '<span class="form-alert-detail">빨간색으로 표시된 곳을 채운 뒤 다시 눌러 주세요.</span>');
+      var first = fieldOf(missing[0].key);
+      if (first) {
+        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var focusTarget = first.querySelector('input:not([type="radio"]), textarea') || first.querySelector('input');
+        if (focusTarget) focusTarget.focus({ preventScroll: true });
+      }
+      return;
+    }
+    hideAlert();
     var data = collect();
 
     if (FORM_ENDPOINT) {
+      sending = true;
       submitBtn.disabled = true;
-      submitBtn.textContent = '보내는 중…';
+      submitBtn.textContent = '보내는 중입니다…';
       var payload = {};
       for (var k in data) { if (data.hasOwnProperty(k)) payload[k] = data[k]; }
       payload['_subject'] = mailSubject(data);
+      payload['_replyto'] = data['회신 이메일'];
       payload['email'] = data['회신 이메일'];
+      payload['_gotcha'] = textValue('c-gotcha');
+
+      var controller = ('AbortController' in window) ? new AbortController() : null;
+      var timer = setTimeout(function () { if (controller) controller.abort(); }, TIMEOUT_MS);
 
       fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller ? controller.signal : undefined
       }).then(function (res) {
-        showSuccess(res.ok, data);
-      }).catch(function () {
-        showSuccess(false, data);
+        if (res.ok) { showSuccess('sent', data); return; }
+        return formspreeError(res).then(function (msg) { showSuccess('failed', data, msg); });
+      }).catch(function (err) {
+        var msg = (err && err.name === 'AbortError')
+          ? '응답이 없어 20초 뒤 중단했습니다'
+          : '인터넷 연결 또는 접수 서비스 문제';
+        showSuccess('failed', data, msg);
       }).then(function () {
+        clearTimeout(timer);
+        sending = false;
         submitBtn.disabled = false;
-        submitBtn.textContent = '출강 상담 신청하기';
+        submitBtn.textContent = SUBMIT_LABEL;
       });
       return;
     }
 
     window.location.href = mailtoUrl(data);
-    showSuccess(false, data);
+    showSuccess('mailto', data);
   });
 
   copyBtn.addEventListener('click', function () {
@@ -1181,6 +1375,9 @@
 
   document.getElementById('consult-reset').addEventListener('click', function () {
     form.reset();
+    hideAlert();
+    var marked = form.querySelectorAll('.is-invalid');
+    for (var m = 0; m < marked.length; m++) marked[m].classList.remove('is-invalid');
     pcroomField.hidden = true;
     form.hidden = false;
     success.hidden = true;
