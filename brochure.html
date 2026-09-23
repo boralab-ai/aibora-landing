@@ -434,6 +434,9 @@ ul.plain li { margin-bottom: 1.2mm; }
 
   body { background: #fff; font-size: 10pt; }
 
+  /* 인쇄 창에서 「배경 그래픽」을 따로 켜지 않아도 색 배지·표 배경이 그대로 나오게 합니다. */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
   .print-bar { display: none !important; }
 
   .page {
@@ -507,11 +510,11 @@ ul.plain li { margin-bottom: 1.2mm; }
   </div>
 
   <div class="block">
-    <h2 class="sec">2026년 이수 · 자격</h2>
+    <h2 class="sec">이수 · 자격</h2>
     <ul class="plain">
       <li><strong>국립순천대학교 「생성형 AI 전문강사 양성과정」 수료</strong> — 2026년 8월 · 60시간 대면</li>
       <li><strong>한국지능정보사회진흥원(NIA) 「2026 AI디지털튜터 양성과정」 강사형 수료</strong> — 2026년 9월</li>
-      <li>직업상담사 · 사회복지사</li>
+      <li>사회복지사 · 직업상담사</li>
     </ul>
   </div>
 
@@ -597,7 +600,7 @@ ul.plain li { margin-bottom: 1.2mm; }
       </tr>
       <tr>
         <td class="no">4회</td>
-        <td class="ttl">잘 쓰고, 확인하고, 나누기<small>AI 답변 확인 3단계 · 의심 문자·전화 판별 · 생활 문제 종합 실습</small></td>
+        <td class="ttl">잘 쓰고, 확인하고, 나누기<small>AI 답변 확인 3단계 · 기관·가족 사칭 연락 판별 · 생활 문제 종합 실습</small></td>
         <td class="out"><b>생활 AI 활용카드 1장</b><br>안전카드 1장</td>
       </tr>
     </tbody>
@@ -611,7 +614,7 @@ ul.plain li { margin-bottom: 1.2mm; }
     <div class="row"><span class="k">대상</span><span class="v">AI를 처음 접하는 신중년</span></div>
     <div class="row"><span class="k">시간</span><span class="v">1회 · 2시간</span></div>
     <div class="row"><span class="k">내용</span><span class="v">의심스러운 연락 확인하기 → ChatGPT와 첫 대화 → 생활 글쓰기 체험</span></div>
-    <div class="row"><span class="k">활용</span><span class="v">정규과정 전 맛보기, 행사 · 기념주간 단발 특강</span></div>
+    <div class="row"><span class="k">활용</span><span class="v">정규과정 맛보기 · 행사 특강 · 특강 B「1분 추억 영상」 선택 가능</span></div>
   </div>
 
   <div class="page-foot"><span>이보라 · AI 강의 출강 안내서 · 2026년</span><span>2 / 5</span></div>
@@ -651,7 +654,7 @@ ul.plain li { margin-bottom: 1.2mm; }
   </table>
 
   <h3 class="sub">기관 맞춤형 실습 사례</h3>
-  <p class="tight">기본과정은 업무문서 활용을 중심으로 운영합니다. 기관 요청이 있는 경우 교육·상담 또는 자영업 분야에 맞게 실습 사례를 조정하며, 한 기수에서는 한 분야의 사례를 중심으로 진행합니다.</p>
+  <p class="tight">기본과정은 업무문서 활용을 중심으로 운영합니다. 기관 요청이 있는 경우 교육·상담, 취업 준비 또는 자영업 분야에 맞게 실습 사례를 조정하며, 한 기수에서는 한 분야의 사례를 중심으로 진행합니다.</p>
 
   <p class="note">회차별 시간 배분과 상세 커리큘럼은 <strong>aibora.kr/syllabus-mid.html</strong> 에서 보실 수 있습니다.</p>
 
@@ -715,7 +718,7 @@ ul.plain li { margin-bottom: 1.2mm; }
     <tr><th>측정 항목</th><th class="num">1회차 사전</th><th class="num">최종회차 사후</th><th class="num">변화</th></tr>
     <tr><td>같은 문항 재점검 결과 (10문항 평균)</td><td class="blank"></td><td></td><td></td></tr>
     <tr><td>확인 절차를 스스로 설명할 수 있는 인원</td><td class="blank"></td><td></td><td></td></tr>
-    <tr><td>AI로 생활 문제를 직접 해결해 본 인원</td><td class="blank"></td><td></td><td></td></tr>
+    <tr><td>AI로 생활 문제를 직접 해결해 본 인원 (혼자 / 도움받아 구분)</td><td class="blank"></td><td></td><td></td></tr>
   </table>
 
   <p class="tight" style="font-size:9.2pt;margin-top:4mm"><strong>▼ 업무 중급과정</strong> — AI 업무활용 자기진단 (각 항목 1~5점 자기평가)</p>
@@ -731,7 +734,7 @@ ul.plain li { margin-bottom: 1.2mm; }
 
   <p class="tight" style="font-size:9.2pt;margin-top:2.5mm"><strong>▼ 업무 중급과정</strong> — 결과물 완성 현황 (사전 측정 없음)</p>
   <table class="form">
-    <tr><td>회차별 결과물 완성 현황 (8종 중 완성 개수) — 완성 개수 평균</td><td class="num blank"></td></tr>
+    <tr><td>회차별 결과물 완성 현황 (8종 중 완성 개수 · 혼자 / 도움받아 완성 구분)</td><td class="num blank"></td></tr>
   </table>
 
   <p class="note">※ 개인 식별 정보는 담지 않고 인원 수와 평균값으로만 정리합니다. 자기진단 점수의 변화로 표기하며, 업무능력 향상률로 표기하지 않습니다.</p>
