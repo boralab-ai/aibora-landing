@@ -204,6 +204,110 @@
     }
   }
 
+  /* --- 3개 과정 한눈에 (2026.9) --- */
+
+  .courses-lead {
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0 0 1.6rem;
+  }
+
+  .course-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .course-table thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    padding: 0 0.9rem 0.6rem 0;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .course-table tbody th,
+  .course-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 1.05rem 0.9rem 1.05rem 0;
+    border-bottom: 1px solid var(--line);
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .course-table tbody th { font-weight: 400; width: 31%; }
+  .course-table td:nth-child(3) { width: 20%; }
+  .course-table td:last-child { color: var(--ink-soft); }
+
+  .course-kind {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .course-name {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .course-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+  }
+
+  .course-link:hover { background: var(--surface-2); }
+
+  .course-sub { display: block; color: var(--ink-soft); font-size: 0.86rem; }
+
+  .course-table tbody tr:last-child th,
+  .course-table tbody tr:last-child td { border-bottom: none; }
+
+  @media (max-width: 640px) {
+    .course-table thead { display: none; }
+    .course-table,
+    .course-table tbody,
+    .course-table tr,
+    .course-table th,
+    .course-table td { display: block; width: 100%; }
+    .course-table tr {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 1rem 1.1rem;
+      margin-bottom: 0.9rem;
+    }
+    .course-table tbody th,
+    .course-table td { border-bottom: none; padding: 0.3rem 0; }
+    .course-table tbody th { width: 100%; padding-bottom: 0.5rem; }
+    .course-table td:nth-child(3) { width: 100%; }
+    .course-table td::before {
+      content: attr(data-label);
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      margin-bottom: 0.1rem;
+    }
+  }
+
   /* --- consult section --- */
 
   .consult-desc {
@@ -870,28 +974,38 @@
 </section>
 
 <section id="topics">
-  <p class="section-label">Topics</p>
-  <h2>다루는 주제</h2>
-  <ul class="topics-list">
-    <li>
-      <span class="topic-name">생활 AI 기초</span>
-      <span class="topic-desc">가입과 첫 질문부터, 병원 진료 준비·편지 쓰기·사진 정리·번역까지 — 스마트폰으로 한 단계씩 따라 하는 입문 과정</span>
-    </li>
-    <li>
-      <span class="topic-name">AI 안전 · 보이스피싱 예방</span>
-      <span class="topic-desc">검찰·금융감독원 사칭, 가족 사칭, AI 목소리까지 — 의심스러운 문자·전화를 AI와 함께 확인하는 법. 「이 연락 믿어도 될까요?」 실습으로 이어집니다</span>
-    </li>
-    <li>
-      <span class="topic-name">업무·자영업 AI 활용</span>
-      <span class="topic-desc"><strong class="topic-lead">혼자 처리하던 글쓰기와 정리 업무, AI와 함께 더 빠르고 명확하게</strong>고객 문의 답변, 상품 설명과 홍보 문구, 안내문, 견적 요청과 업무 이메일, 긴 자료의 핵심 정리까지. 온라인 쇼핑몰을 직접 운영한 경험을 바탕으로 1인 사업자가 오늘 업무에 바로 적용할 수 있는 AI 활용법을 다룹니다.</span>
-    </li>
-  </ul>
-  <p class="topics-note">진행 형태 · 2시간 단회 특강 / 4회 8시간 기초 정규과정 / <strong>8회 16시간 업무 중급과정</strong> — 회차와 시간은 기관 일정에 맞춰 조정해 드립니다. 이 외에 <strong>기관 맞춤 강의</strong>도 가능합니다 — 수강생 연령·인원·목적에 맞춰 커리큘럼을 새로 구성해 드립니다.</p>
+  <p class="section-label">Programs</p>
+  <h2>3개 과정 한눈에</h2>
+  <p class="courses-lead">기관의 목적에 맞는 과정을 먼저 골라 주세요. 모든 과정에 <strong>개인정보 보호</strong>와 <strong>사칭 연락(검찰·금융감독원·가족 사칭) 확인법</strong>이 들어갑니다.</p>
+  <table class="course-table">
+    <thead>
+      <tr><th scope="col">과정</th><th scope="col">이런 분께</th><th scope="col">시간 · 정원</th><th scope="col">핵심 결과</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><span class="course-kind">특강</span><span class="course-name">생활 AI 2시간 특강</span><a class="course-link" href="special.html">특강 계획서 보기 →</a></th>
+        <td data-label="이런 분께">짧게 체험해 보고 싶은 신중년</td>
+        <td data-label="시간 · 정원">1회 · 2시간<br>권장 12명<span class="course-sub">보조강사 투입 시 증원 가능</span></td>
+        <td data-label="핵심 결과">A · 첫 AI 질문, 생활 문장, 사칭 연락 확인법<br>B · 추억 사진 1분 영상</td>
+      </tr>
+      <tr>
+        <th scope="row"><span class="course-kind">기초</span><span class="course-name">스마트폰으로 배우는 생활 AI</span><a class="course-link" href="syllabus.html">기초 강의계획서 보기 →</a></th>
+        <td data-label="이런 분께">스마트폰으로 차근차근 배우고 싶은 분</td>
+        <td data-label="시간 · 정원">4회 · 8시간<br>권장 12명<span class="course-sub">보조강사 투입 시 증원 가능</span></td>
+        <td data-label="핵심 결과">안내문 요약과 가족 문장, 1분 추억 영상, 10초 멈춤 안전카드</td>
+      </tr>
+      <tr>
+        <th scope="row"><span class="course-kind">중급</span><span class="course-name">PC로 완성하는 업무 AI</span><a class="course-link" href="syllabus-mid.html">중급 강의계획서 보기 →</a></th>
+        <td data-label="이런 분께">AI를 써 봤고 업무에 활용하고 싶은 분</td>
+        <td data-label="시간 · 정원">8회 · 16시간<br>권장 10명<span class="course-sub">보조강사 투입 시 증원 가능</span><span class="course-sub">1인 1PC 실습실</span></td>
+        <td data-label="핵심 결과">업무 문서, 자료 분석표, 나만의 AI 업무비서</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="topics-note">회차와 시간은 기관 일정에 맞춰 조정하며, 수강생 연령·인원·목적에 맞춘 <strong>기관 맞춤 강의</strong>도 가능합니다.</p>
   <div class="cta-row" style="margin-top: 1.25rem;">
-    <a class="btn btn-primary" href="programs.html">전체 강의 프로그램 보기</a>
-    <a class="btn btn-ghost" href="special.html">2시간 특강 계획서</a>
-    <a class="btn btn-ghost" href="syllabus.html">기초 4회 강의계획서</a>
-    <a class="btn btn-ghost" href="syllabus-mid.html">중급 8회 강의계획서</a>
+    <a class="btn btn-primary" href="#consult">출강 문의하기</a>
+    <a class="btn btn-ghost" href="programs.html">과정 자세히 비교하기</a>
   </div>
 </section>
 
@@ -906,7 +1020,7 @@
     </li>
     <li>
       <span class="ops-label">진행 정원</span>
-      <span class="ops-value"><strong>기초과정 · 특강 — 권장 12명</strong><br>실습 위주 수업으로 한 분씩 화면을 확인하며 진행합니다. <strong>보조강사 1명을 배치하면 최대 20명</strong>까지 진행하며, 20명을 넘으면 <strong>분반 운영</strong>을 권장드립니다.<br><br><strong>업무 중급과정 — 권장 10명</strong><br>회차별로 자신의 업무 결과물을 직접 만들고 강사가 수강생의 화면을 확인하는 실습과정입니다. 원활한 개별 피드백을 위해 소수정예로 운영합니다. <strong>보조강사 1명을 배치하면 최대 16명</strong>까지 진행하며, 16명을 넘으면 <strong>분반 운영</strong>을 권장드립니다.</span>
+      <span class="ops-value"><strong>기초과정 · 특강 권장 12명</strong> &nbsp;·&nbsp; <strong>업무 중급과정 권장 10명</strong><br><strong>보조강사 투입 시 증원 가능</strong>합니다. 실습 위주라 한 분씩 화면을 확인하며 진행하고, 인원이 더 많으면 분반 운영을 권장드립니다. 과정별 조건은 각 강의계획서에 있습니다.</span>
     </li>
     <li>
       <span class="ops-label">필요 환경</span>
