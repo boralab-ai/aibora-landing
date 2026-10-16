@@ -20,6 +20,7 @@
 - [2시간 특강 강의계획서](https://www.aibora.kr/special.html): 특강 A 「오늘 바로 쓰는 생활 AI 3가지」(사칭 연락 확인, ChatGPT 첫 질문, 생활 문장), 특강 B 「내 사진과 이야기가 1분 영상이 되는 시간」. 1회 2시간.
 - [생활 AI 기초 4회 강의계획서](https://www.aibora.kr/syllabus.html): 「스마트폰으로 배우는 생활 AI」 4회 8시간. ChatGPT 첫 대화(글·음성), 안내문 요약과 가족 문장, 1분 추억 영상, AI 답변·보이스피싱 확인.
 - [업무 AI 중급 8회 강의계획서](https://www.aibora.kr/syllabus-mid.html): 「PC로 완성하는 업무 AI」 8회 16시간. ChatGPT·Gemini 무료 기능으로 지시문, 출처 확인, 문서 요약, 자료 분석, 업무 이미지, 나만의 AI 업무비서.
+- [중장년 소상공인 AI 마케팅 (기관 맞춤 과정 예시)](https://www.aibora.kr/smallbiz.html): 「오늘 만들어 바로 쓰는 우리 가게 AI 마케팅」 1일 6시간, 정원 10명. 가게 소개글, 작은 이벤트 실행안, 홍보 글, 홍보 이미지 완성.
 - [강의 프로그램 비교](https://www.aibora.kr/programs.html)
 
 ## 운영 조건
