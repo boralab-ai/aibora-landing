@@ -1221,6 +1221,42 @@
   .material-card-compact .material-card-title { font-size: 1.05rem; }
   .material-card-compact .material-card-desc { margin-bottom: 0.6rem; font-size: 0.95rem; }
   .text-link { font-weight: 600; color: var(--ink); }
+
+  /* --- 영상 가운데 재생 버튼 (2026-11-16) --- */
+  .video-play {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+    padding: 0; border: 0; background: none; cursor: pointer;
+    color: #fff; z-index: 2;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .video-play-circle {
+    display: flex; align-items: center; justify-content: center;
+    width: clamp(64px, 12vw, 88px); height: clamp(64px, 12vw, 88px);
+    border-radius: 50%;
+    background: rgba(20, 24, 33, 0.62);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+  .video-play-circle svg { margin-left: 4px; }
+  .video-play-label {
+    font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em;
+    padding: 0.25rem 0.7rem; border-radius: 999px;
+    background: rgba(20, 24, 33, 0.62);
+  }
+  .video-play:hover .video-play-circle,
+  .video-play:focus-visible .video-play-circle { transform: scale(1.07); background: rgba(20, 24, 33, 0.78); }
+  .video-play:focus-visible { outline: 3px solid #f5c542; outline-offset: 6px; border-radius: 12px; }
+  .video-play[hidden] { display: none; }
+  @media (max-width: 560px) {
+    .video-play { top: 44%; gap: 0.35rem; }
+    .video-play-circle { width: 58px; height: 58px; }
+    .video-play-circle svg { width: 26px; height: 26px; }
+    .video-play-label { font-size: 0.78rem; padding: 0.15rem 0.55rem; }
+  }
 </style>
 </head>
 <body>
@@ -1267,6 +1303,10 @@
       <source src="videos/mokpo-highlight.mp4?v=2" type="video/mp4">
       이 브라우저에서는 동영상을 재생할 수 없습니다.
     </video>
+    <button type="button" class="video-play" id="video-play" aria-label="1분 수업 영상 재생">
+      <span class="video-play-circle" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
+      <span class="video-play-label">1분 수업 영상</span>
+    </button>
   </div>
 
   <article class="case-card">
@@ -1918,5 +1958,25 @@
   <span>© 2026 이보라(보라쌤) · 광주·전남 AI 강사</span>
 </footer>
 
+<script>
+(function () {
+  var box = document.getElementById('video-embed');
+  if (!box) return;
+  var v = box.querySelector('video');
+  var b = document.getElementById('video-play');
+  if (!v || !b) return;
+  function show() { if (!v.seeking) b.hidden = false; }
+  function hide() { b.hidden = true; }
+  b.addEventListener('click', function () {
+    hide();
+    var p = v.play();
+    if (p && p.catch) p.catch(show);
+  });
+  v.addEventListener('play', hide);
+  v.addEventListener('playing', hide);
+  v.addEventListener('pause', function () { setTimeout(function () { if (v.paused && !v.seeking) show(); }, 150); });
+  v.addEventListener('ended', show);
+})();
+</script>
 </body>
 </html>
